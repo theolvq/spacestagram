@@ -1,8 +1,12 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import Picture from './components/Picture';
+import { Container } from './styles/App.style';
+import { v4 as uuid } from 'uuid';
 
 function App() {
-  const [APIResponse, setAPIResponse] = useState({});
+  const [APIResponse, setAPIResponse] = useState([]);
+  const [images, setImages] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [date, setDate] = useState('');
 
@@ -12,11 +16,15 @@ function App() {
   const fetchData = async () => {
     setIsLoading(true);
     try {
-      const { data } = await axios.get(
-        `${URL}?api_key=${API_KEY}&date=${date}`
-      );
-
-      setAPIResponse(data);
+      const { data } = await axios.get(`${URL}?api_key=${API_KEY}&count=10`);
+      const filterImages = data
+        .filter((obj) => obj.media_type === 'image')
+        .map((image) => ({
+          ...image,
+          likes: 0,
+          id: uuid(),
+        }));
+      setImages(filterImages);
     } catch (err) {
       console.error(err);
     } finally {
@@ -24,21 +32,29 @@ function App() {
     }
   };
 
-  const handleChange = ({ target }) => {
-    setDate(target.value);
-  };
+  const like = () => null;
+  const unlike = () => null;
 
   useEffect(() => {
     fetchData();
-  }, [date]);
+  }, []);
+
+  // setImages(
+  //   APIResponse.filter((obj) => obj.media_type === 'image').map((image) => ({
+  //     ...image,
+  //     likes: 0,
+  //     id: uuid(),
+  //   }))
+  // );
 
   if (isLoading) {
     return <p>loading...</p>;
   }
 
   return (
-    <div className='App'>
-      <h1>Hello</h1>
+    <Container>
+      <h1>Spacestagram</h1>
+      <p>Brought to you by NASA's Astronomy Picture Of the Day (APOD) API</p>
       <input
         type='date'
         name='date'
@@ -47,8 +63,11 @@ function App() {
           setDate(target.value);
         }}
       />
-      <img src={APIResponse.url} alt={APIResponse.title} />
-    </div>
+      {images &&
+        images.map((image) => (
+          <Picture key={image.id} picture={image} like={like} unlike={unlike} />
+        ))}
+    </Container>
   );
 }
 
