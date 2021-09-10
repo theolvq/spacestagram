@@ -3,12 +3,12 @@ import { useEffect, useState } from 'react';
 import Picture from './components/Picture';
 import { Container } from './styles/App.style';
 import { v4 as uuid } from 'uuid';
+import { Header } from './styles/Header.style';
 
 function App() {
-  const [APIResponse, setAPIResponse] = useState([]);
   const [images, setImages] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [date, setDate] = useState('');
+  const [count, setCount] = useState(10);
 
   const API_KEY = process.env.REACT_APP_API_KEY;
   const URL = 'https://api.nasa.gov/planetary/apod';
@@ -16,36 +16,43 @@ function App() {
   const fetchData = async () => {
     setIsLoading(true);
     try {
-      const { data } = await axios.get(`${URL}?api_key=${API_KEY}&count=10`);
-      const filterImages = data
+      const { data } = await axios.get(
+        `${URL}?api_key=${API_KEY}&count=${count}`
+      );
+      const processedData = data
         .filter((obj) => obj.media_type === 'image')
         .map((image) => ({
           ...image,
           likes: 0,
           id: uuid(),
         }));
-      setImages(filterImages);
+      setImages(processedData);
     } catch (err) {
-      console.error(err);
+      console.error('GET error', err);
     } finally {
       setIsLoading(false);
     }
   };
 
-  const like = () => null;
-  const unlike = () => null;
+  const like = (id) => {
+    setImages((prev) =>
+      prev.map((image) =>
+        image.id === id ? { ...image, likes: image.likes + 1 } : image
+      )
+    );
+  };
+
+  const unlike = (id) => {
+    setImages((prev) =>
+      prev.map((image) =>
+        image.id === id ? { ...image, likes: image.likes - 1 } : image
+      )
+    );
+  };
 
   useEffect(() => {
     fetchData();
   }, []);
-
-  // setImages(
-  //   APIResponse.filter((obj) => obj.media_type === 'image').map((image) => ({
-  //     ...image,
-  //     likes: 0,
-  //     id: uuid(),
-  //   }))
-  // );
 
   if (isLoading) {
     return <p>loading...</p>;
@@ -53,20 +60,21 @@ function App() {
 
   return (
     <Container>
-      <h1>Spacestagram</h1>
-      <p>Brought to you by NASA's Astronomy Picture Of the Day (APOD) API</p>
-      <input
-        type='date'
-        name='date'
-        value={date}
+      <Header>
+        <h1>Spacestagram</h1>
+        <p>Brought to you by NASA's Astronomy Picture Of the Day (APOD) API</p>
+      </Header>
+      {/* <input
+        type='number'
+        name='count'
+        value={count}
         onChange={({ target }) => {
-          setDate(target.value);
+          setCount(target.value);
         }}
-      />
-      {images &&
-        images.map((image) => (
-          <Picture key={image.id} picture={image} like={like} unlike={unlike} />
-        ))}
+      /> */}
+      {images.map((image) => (
+        <Picture key={image.id} picture={image} like={like} unlike={unlike} />
+      ))}
     </Container>
   );
 }
