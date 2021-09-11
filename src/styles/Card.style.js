@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Card = styled.article`
+export const CardContainer = styled.article`
   box-shadow: 0 0 0.5em 0.125em hsla(0, 50%, 14%, 0.25);
   margin: 2em auto;
   border: 1px solid hsla(0, 0%, 50%, 0.75);
@@ -15,6 +15,8 @@ export const Card = styled.article`
   }
 
   img {
+    width: 100%;
+    display: block;
     margin-bottom: 1em;
   }
 
