@@ -7,13 +7,10 @@ export const LikeButton = styled.button`
 
   svg {
     width: 32px;
-    fill: ${(props) => (props.isLiked ? '#f00' : '#fff')};
-    stroke: ${(props) => (props.isLiked ? '#f00' : '#000')};
-    stroke-width: 2px;
-    transition: 500ms ease-in-out;
-
-    /* &:hover {
-      fill: ${(props) => (props.isLiked ? '#666' : '#ddd')};
-    } */
+    fill: ${props => (props.isLiked ? '#f00' : '#fff')};
+    stroke: ${props => (props.isLiked ? '#f00' : '#000')};
+    stroke-width: 0.1rem;
+    transform: ${props => (props.isClicked ? 'scale(1.25)' : 'scale(1)')};
+    transition: transform 150ms ease-out;
   }
 `;
