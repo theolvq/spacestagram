@@ -6,9 +6,5 @@ export const MoreButton = styled.button`
   padding: 0.5em 1em;
   transition: 500ms;
   border: 1px solid hsla(0, 0%, 50%, 0.75);
-
-  &:hover,
-  &:focus {
-    background: hsla(0, 0%, 75%, 0.75);
-  }
+  cursor: pointer;
 `;

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { LikeButton } from '../styles/LikeButton.style';
 import { CardContainer } from '../styles/Card.style';
+import { formatDate } from '../utils/helpers';
 
 const Card = ({ picture, like, unlike }) => {
   const [isLiked, setIsLiked] = useState(false);
@@ -22,7 +23,7 @@ const Card = ({ picture, like, unlike }) => {
       }, 150);
     }
   };
-
+  console.log(new Date(picture.date));
   return (
     <CardContainer>
       <figure>
@@ -32,11 +33,12 @@ const Card = ({ picture, like, unlike }) => {
           alt={picture.title}
         />
         <figcaption>{picture.title}</figcaption>
-        <p>Published on {picture.date}</p>
+        <p>Published on {formatDate(picture.date)}</p>
         <p>{picture.explanation} </p>
       </figure>
       <div>
         <LikeButton
+          aria-label='like button'
           isClicked={isClicked}
           isLiked={isLiked}
           onClick={() => handleLikeClick(picture.id)}>

@@ -5,6 +5,7 @@ export const Header = styled.header`
   background-color: #fff;
   position: sticky;
   top: 0;
+  border-bottom: 1px solid var(--light-grey);
 
   h1 {
     font-family: 'Satisfy', cursive;

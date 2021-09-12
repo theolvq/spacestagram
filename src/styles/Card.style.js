@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
 export const CardContainer = styled.article`
-  box-shadow: 0 0 0.5em 0.125em hsla(0, 50%, 14%, 0.25);
   margin: 1.5rem auto 0 auto;
-  border: 1px solid hsla(0, 0%, 50%, 0.75);
+  border: 1px solid var(--light-grey);
   background-color: #fff;
+
   figcaption,
   p,
   div {
@@ -27,6 +27,7 @@ export const CardContainer = styled.article`
 
   figcaption + p {
     font-size: 0.75rem;
+    color: hsla(0, 0%, 35%, 1);
   }
 
   div {

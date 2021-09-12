@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.main`
+  --light-grey: hsla(0, 0%, 85%, 1);
   display: flex;
   flex-direction: column;
   justify-content: space-between;

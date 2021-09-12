@@ -52,7 +52,6 @@ function App() {
   };
 
   useEffect(() => {
-    console.log(randomLikes());
     fetchData();
   }, [fetchData]);
 
@@ -70,10 +69,12 @@ function App() {
         <Card key={image.id} picture={image} like={like} unlike={unlike} />
       ))}
 
-      <MoreButton onClick={() => !isLoading && fetchData()}>
+      <MoreButton
+        aria-label='load more pictures button'
+        onClick={() => !isLoading && fetchData()}>
         More Pictures
       </MoreButton>
-      <ArrowButton onClick={backToTop}>
+      <ArrowButton aria-label='back to top button' onClick={backToTop}>
         <svg
           className='arrow'
           xmlns='http://www.w3.org/2000/svg'
