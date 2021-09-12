@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const CardContainer = styled.article`
   margin: 1.5rem auto 0 auto;
@@ -30,7 +30,7 @@ export const CardContainer = styled.article`
     color: hsla(0, 0%, 35%, 1);
   }
 
-  div {
+  section {
     display: flex;
   }
 `;

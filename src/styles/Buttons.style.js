@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Button = styled.button`
   cursor: pointer;
@@ -11,10 +11,10 @@ export const LikeButton = styled(Button)`
 
   svg {
     width: 32px;
-    fill: ${({ isLiked }) => (isLiked ? 'var(--red)' : '#fff')};
-    stroke: ${({ isLiked }) => (isLiked ? 'var(--red)' : '#000')};
+    fill: ${({isLiked}) => (isLiked ? "var(--red)" : "#fff")};
+    stroke: ${({isLiked}) => (isLiked ? "var(--red)" : "#000")};
     stroke-width: 0.1rem;
-    transform: ${({ isClicked }) => (isClicked ? 'scale(1.25)' : 'scale(1)')};
+    transform: ${({isClicked}) => (isClicked ? "scale(1.25)" : "scale(1)")};
     transition: transform 150ms ease-out;
   }
 `;

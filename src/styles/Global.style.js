@@ -1,4 +1,4 @@
-import * as styled from 'styled-components';
+import * as styled from "styled-components";
 
 export const GlobalStyles = styled.createGlobalStyle`
   :root {
@@ -8,7 +8,7 @@ export const GlobalStyles = styled.createGlobalStyle`
     --red: hsl(355, 82%, 61%);
   }
   body {
-    font-family: 'Open Sans', sans-serif;
+    font-family: "Open Sans", sans-serif;
     color: var(--dark-grey);
     background-color: var(--bg-white);
   }
