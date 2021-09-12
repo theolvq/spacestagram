@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { LikeButton } from '../styles/LikeButton.style';
+import { LikeButton } from '../styles/Buttons.style';
 import { CardContainer } from '../styles/Card.style';
 import { formatDate } from '../utils/helpers';
 
