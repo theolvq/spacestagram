@@ -1,6 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+import {FeedContainer} from "../styles/Feed.style";
+
 import Card from "./Card";
 
 const Feed = ({images, setImages}) => {
@@ -20,11 +22,11 @@ const Feed = ({images, setImages}) => {
     );
   };
   return (
-    <>
+    <FeedContainer>
       {images.map((image) => (
         <Card key={image.id} picture={image} like={like} unlike={unlike} />
       ))}
-    </>
+    </FeedContainer>
   );
 };
 

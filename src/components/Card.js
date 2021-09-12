@@ -33,10 +33,10 @@ const Card = ({picture, like, unlike}) => {
       <figure>
         <img src={picture.url} alt={picture.title} />
         <figcaption>{picture.title}</figcaption>
-        <p>{dateLabel}</p>
-        <p>{picture.explanation} </p>
+        <p className="date">{dateLabel}</p>
+        <p className="desc">{picture.explanation} </p>
       </figure>
-      <section>
+      <section className="like">
         <LikeButton
           aria-label="like button"
           isClicked={isClicked}

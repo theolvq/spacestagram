@@ -4,7 +4,7 @@ export const SpinLoader = styled.div`
   margin: 0 auto;
   width: 3rem;
   position: fixed;
-  top: 50%;
+  bottom: 1rem;
   left: 50%;
 
   svg {

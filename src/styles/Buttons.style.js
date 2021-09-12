@@ -2,12 +2,11 @@ import styled from "styled-components";
 
 export const Button = styled.button`
   cursor: pointer;
+  background-color: hsla(0, 0%, 0%, 0);
 `;
 
 export const LikeButton = styled(Button)`
   border: none;
-  background-color: #fff;
-  cursor: pointer;
 
   svg {
     width: 32px;
@@ -19,14 +18,6 @@ export const LikeButton = styled(Button)`
   }
 `;
 
-export const MoreButton = styled(Button)`
-  margin: 2rem 0;
-  border-radius: 5rem;
-  padding: 0.5em 1em;
-  transition: 500ms;
-  border: 1px solid var(--light-grey);
-`;
-
 export const ArrowButton = styled(Button)`
   padding: 1em;
   border-radius: 50%;
@@ -35,8 +26,6 @@ export const ArrowButton = styled(Button)`
   right: 1rem;
   border: none;
   transition: 500ms;
-  background-color: hsla(0, 0%, 0%, 0);
-  cursor: pointer;
 
   svg {
     transform: rotate(270deg);

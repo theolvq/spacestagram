@@ -7,6 +7,14 @@ export const GlobalStyles = styled.createGlobalStyle`
     --bg-white: hsl(0, 0%, 98%);
     --red: hsl(355, 82%, 61%);
   }
+
+  *,
+  *::after,
+  *::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
   body {
     font-family: "Open Sans", sans-serif;
     color: var(--dark-grey);

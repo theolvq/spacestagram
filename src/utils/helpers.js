@@ -1,4 +1,15 @@
-export const randomLikes = () => Math.floor(Math.random() * 150);
+import {v4 as uuid} from "uuid";
+
+const randomLikes = () => Math.floor(Math.random() * 150);
+
+export const processData = (data) =>
+  data
+    .filter((obj) => obj.media_type === "image")
+    .map((image) => ({
+      ...image,
+      likes: randomLikes(),
+      id: uuid(),
+    }));
 
 const days = [
   "Sunday",

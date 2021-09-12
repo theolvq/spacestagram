@@ -1,15 +1,14 @@
 import axios from "axios";
 import React, {useCallback, useEffect, useState} from "react";
-import {v4 as uuid} from "uuid";
 
-import {randomLikes} from "./utils/helpers";
-import {Container} from "./styles/App.style";
 import {GlobalStyles} from "./styles/Global.style";
 import Loader from "./components/Loader";
 import Header from "./components/Header";
 import Feed from "./components/Feed";
 import Footer from "./components/Footer";
 import Error from "./components/Error";
+import useEvent from "./hooks/useEvent";
+import {processData} from "./utils/helpers";
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 const APOD_URL = "https://api.nasa.gov/planetary/apod";
@@ -21,17 +20,11 @@ function App() {
 
   const fetchData = useCallback(async () => {
     setIsLoading(true);
+
     try {
       const {data} = await axios.get(`${APOD_URL}?api_key=${API_KEY}&count=10`);
-      const processedData = data
-        .filter((obj) => obj.media_type === "image")
-        .reverse()
-        .map((image) => ({
-          ...image,
-          likes: randomLikes(),
-          id: uuid(),
-        }));
-      setImages(processedData);
+      const processedData = processData(data);
+      setImages((prev) => prev.concat(processedData));
     } catch (err) {
       setErrorMessage(err.message);
       setTimeout(() => {
@@ -42,12 +35,23 @@ function App() {
     }
   }, []);
 
+  const handleScroll = () => {
+    if (isLoading) {
+      return;
+    }
+    if (window.scrollY + window.innerHeight >= document.body.offsetHeight) {
+      fetchData();
+    }
+  };
+
+  useEvent("scroll", handleScroll);
+
   useEffect(() => {
     fetchData();
   }, [fetchData]);
 
   return (
-    <Container>
+    <main>
       <GlobalStyles />
       {isLoading && <Loader />}
 
@@ -55,7 +59,7 @@ function App() {
       {errorMessage && <Error error={errorMessage} />}
       <Feed images={images} setImages={setImages} />
       <Footer isLoading={isLoading} fetchData={fetchData} />
-    </Container>
+    </main>
   );
 }
 
