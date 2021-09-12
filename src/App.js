@@ -1,11 +1,13 @@
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import Card from './components/Card';
 import { Container } from './styles/App.style';
 import { v4 as uuid } from 'uuid';
 import { Header } from './styles/Header.style';
 import Spin from './components/Spin';
-import { Button } from './styles/Button.style';
+import { MoreButton } from './styles/MoreButton.style';
+import { ArrowButton } from './styles/ArrowButton.style';
+import { randomLikes } from './utils/helpers';
 
 function App() {
   const [images, setImages] = useState([]);
@@ -14,7 +16,7 @@ function App() {
   const API_KEY = process.env.REACT_APP_API_KEY;
   const URL = 'https://api.nasa.gov/planetary/apod';
 
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     setIsLoading(true);
     try {
       const { data } = await axios.get(`${URL}?api_key=${API_KEY}&count=10`);
@@ -22,7 +24,7 @@ function App() {
         .filter((obj) => obj.media_type === 'image')
         .map((image) => ({
           ...image,
-          likes: 0,
+          likes: randomLikes(),
           id: uuid(),
         }));
       setImages(processedData);
@@ -31,7 +33,7 @@ function App() {
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [API_KEY]);
 
   const like = (id) => {
     setImages((prev) =>
@@ -50,30 +52,9 @@ function App() {
   };
 
   useEffect(() => {
+    console.log(randomLikes());
     fetchData();
-  }, []);
-
-  const fetchMore = async () => {
-    if (!isLoading) {
-      console.log('fetch more');
-      setIsLoading(true);
-      try {
-        const { data } = await axios.get(`${URL}?api_key=${API_KEY}&count=10`);
-        const processedData = data
-          .filter((obj) => obj.media_type === 'image')
-          .map((image) => ({
-            ...image,
-            likes: 0,
-            id: uuid(),
-          }));
-        setImages((prev) => prev.concat(processedData));
-      } catch (err) {
-        console.error('GET error', err);
-      } finally {
-        setIsLoading(false);
-      }
-    }
-  };
+  }, [fetchData]);
 
   const backToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -89,8 +70,10 @@ function App() {
         <Card key={image.id} picture={image} like={like} unlike={unlike} />
       ))}
 
-      <Button onClick={fetchMore}>More Pictures</Button>
-      <Button onClick={backToTop}>
+      <MoreButton onClick={() => !isLoading && fetchData()}>
+        More Pictures
+      </MoreButton>
+      <ArrowButton onClick={backToTop}>
         <svg
           className='arrow'
           xmlns='http://www.w3.org/2000/svg'
@@ -99,7 +82,7 @@ function App() {
           viewBox='0 0 24 24'>
           <path d='M0 3.795l2.995-2.98 11.132 11.185-11.132 11.186-2.995-2.981 8.167-8.205-8.167-8.205zm18.04 8.205l-8.167 8.205 2.995 2.98 11.132-11.185-11.132-11.186-2.995 2.98 8.167 8.206z' />
         </svg>
-      </Button>
+      </ArrowButton>
     </Container>
   );
 }

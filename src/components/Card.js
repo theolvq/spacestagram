@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { LikeButton } from '../styles/Like.style';
+import { LikeButton } from '../styles/LikeButton.style';
 import { CardContainer } from '../styles/Card.style';
 
 const Card = ({ picture, like, unlike }) => {

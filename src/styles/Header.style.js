@@ -1,10 +1,15 @@
 import styled from 'styled-components';
 
 export const Header = styled.header`
-  margin: 1rem auto;
+  width: 100%;
+  background-color: #fff;
+  position: sticky;
+  top: 0;
 
   h1 {
     font-family: 'Satisfy', cursive;
     font-size: 1.75rem;
+    max-width: 614px;
+    margin: 0.5em auto;
   }
 `;
