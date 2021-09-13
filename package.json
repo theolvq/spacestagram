@@ -20,7 +20,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint ."
   },
   "eslintConfig": {
     "extends": [
@@ -41,6 +42,6 @@
     ]
   },
   "devDependencies": {
-    "eslint-plugin-shopify": "^35.1.0"
+    "@shopify/eslint-plugin": "^40.4.0"
   }
 }

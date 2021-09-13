@@ -1,6 +1,6 @@
 {
   "env": {"browser": true},
-  "extends": ["plugin:shopify/esnext", "plugin:shopify/react", "prettier"],
+  "extends": ["plugin:@shopify/esnext", "plugin:@shopify/react", "prettier"],
 
   "rules": {
     "no-process-env": 0
