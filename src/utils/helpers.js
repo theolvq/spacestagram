@@ -5,6 +5,7 @@ const randomLikes = () => Math.floor(Math.random() * 150);
 export const processData = (data) =>
   data
     .filter((obj) => obj.media_type === "image")
+    .reverse()
     .map((image) => ({
       ...image,
       likes: randomLikes(),

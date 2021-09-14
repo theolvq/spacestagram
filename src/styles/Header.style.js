@@ -7,12 +7,21 @@ export const StyledHeader = styled.header`
   z-index: 1;
   top: 0;
   border-bottom: 1px solid var(--light-grey);
-  padding: 0.5em 0;
 
+  .container {
+    max-width: 614px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  ul {
+    display: flex;
+    gap: 1rem;
+  }
   h1 {
     font-family: "Satisfy", cursive;
     font-size: 1.75rem;
-    max-width: 614px;
-    margin: 0 auto;
   }
 `;

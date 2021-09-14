@@ -42,6 +42,7 @@
     ]
   },
   "devDependencies": {
-    "@shopify/eslint-plugin": "^40.4.0"
+    "@shopify/eslint-plugin": "^40.4.0",
+    "eslint-plugin-jsx-a11y": "^6.4.1"
   }
 }

@@ -19,10 +19,12 @@ function App() {
   const [errorMessage, setErrorMessage] = useState("");
 
   const fetchData = useCallback(async () => {
+    const url = `${APOD_URL}?api_key=${API_KEY}&count=10`;
+
     setIsLoading(true);
 
     try {
-      const {data} = await axios.get(`${APOD_URL}?api_key=${API_KEY}&count=10`);
+      const {data} = await axios.get(url);
       const processedData = processData(data);
       setImages((prev) => prev.concat(processedData));
     } catch (err) {
@@ -54,11 +56,10 @@ function App() {
     <main>
       <GlobalStyles />
       {isLoading && <Loader />}
-
       <Header />
       {errorMessage && <Error error={errorMessage} />}
       <Feed images={images} setImages={setImages} />
-      <Footer isLoading={isLoading} fetchData={fetchData} />
+      <Footer isLoading={isLoading} fetchData={fetchData} />{" "}
     </main>
   );
 }
