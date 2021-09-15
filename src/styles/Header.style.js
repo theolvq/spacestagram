@@ -20,8 +20,15 @@ export const StyledHeader = styled.header`
     display: flex;
     gap: 1rem;
   }
+
   h1 {
     font-family: "Satisfy", cursive;
     font-size: 1.75rem;
+  }
+
+  @media (max-width: 614px) {
+    .container {
+      padding: 0 1rem;
+    }
   }
 `;

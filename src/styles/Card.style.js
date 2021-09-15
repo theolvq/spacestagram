@@ -11,7 +11,7 @@ export const CardContainer = styled.article`
     padding: 0.5rem 1rem;
   }
 
-  img {
+  figure img {
     width: 100%;
     display: block;
     margin-bottom: 1em;
@@ -19,6 +19,23 @@ export const CardContainer = styled.article`
 
   figcaption {
     font-size: 1.5rem;
+  }
+
+  .user {
+    height: 60px;
+    display: flex;
+    align-items: center;
+
+    img {
+      height: 2.5rem;
+      border-radius: 50%;
+      border: 1px solid var(--light-grey);
+    }
+
+    p {
+      font-size: 0.875rem;
+      font-weight: 600;
+    }
   }
 
   .date {

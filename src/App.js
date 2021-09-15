@@ -20,7 +20,6 @@ function App() {
 
   const fetchData = useCallback(async () => {
     const url = `${APOD_URL}?api_key=${API_KEY}&count=10`;
-
     setIsLoading(true);
 
     try {

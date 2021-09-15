@@ -11,7 +11,7 @@ export const LikeButton = styled(Button)`
   svg {
     width: 32px;
     fill: ${({isLiked}) => (isLiked ? "var(--red)" : "#fff")};
-    stroke: ${({isLiked}) => (isLiked ? "var(--red)" : "#000")};
+    stroke: ${({isLiked}) => (isLiked ? "var(--red)" : "var(--dark-grey)")};
     stroke-width: 0.1rem;
     transform: ${({isClicked}) => (isClicked ? "scale(1.25)" : "scale(1)")};
     transition: transform 150ms ease-out;
@@ -19,13 +19,13 @@ export const LikeButton = styled(Button)`
 `;
 
 export const ArrowButton = styled(Button)`
-  padding: 1em;
+  padding: 0.5em;
   border-radius: 50%;
   position: fixed;
   bottom: 1rem;
   right: 1rem;
   border: none;
-  transition: 500ms;
+  background: #fff;
 
   svg {
     transform: rotate(270deg);
