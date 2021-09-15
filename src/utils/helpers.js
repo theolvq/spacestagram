@@ -43,3 +43,7 @@ export const formatDate = (pictureDate) => {
     months[date.getMonth()]
   } ${date.getDate()}, ${date.getFullYear()}`;
 };
+
+export const backToTop = () => {
+  window.scrollTo({top: 0, behavior: "smooth"});
+};

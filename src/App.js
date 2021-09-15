@@ -30,7 +30,7 @@ function App() {
       setErrorMessage(err.message);
       setTimeout(() => {
         setErrorMessage("");
-      }, 3000);
+      }, 10000);
     } finally {
       setIsLoading(false);
     }
@@ -54,11 +54,11 @@ function App() {
   return (
     <main>
       <GlobalStyles />
-      {isLoading && <Loader />}
       <Header />
+      {isLoading && <Loader />}
       {errorMessage && <Error error={errorMessage} />}
       <Feed images={images} setImages={setImages} />
-      <Footer isLoading={isLoading} fetchData={fetchData} />{" "}
+      <Footer isLoading={isLoading} fetchData={fetchData} />
     </main>
   );
 }

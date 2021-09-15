@@ -11,6 +11,7 @@
   ],
 
   "rules": {
-    "no-process-env": 0
+    "no-process-env": 0,
+    "@shopify/jsx-no-hardcoded-content": 1
   }
 }
