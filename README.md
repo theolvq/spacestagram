@@ -4,7 +4,7 @@
 
 ## Intro
 
-We are expanding Shopify's business to the universe and fetching photos from outer space thanks to NASA's amazing Astronomy Picture Of the Day API. The app initially loads 10 random pictures and will keep loading every time you reach the bottom of the page.
+We are expanding Shopify's business to the universe and fetching photos from outer space thanks to NASA's amazing Astronomy Picture Of the Day API. The app initially loads 10 random pictures and is infinitely scrollable with 10 more random pictures every time you reach the bottom of the page.
 
 ## Technologies & choices
 
