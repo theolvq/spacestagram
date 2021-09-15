@@ -7,7 +7,7 @@ export const CardContainer = styled.article`
 
   figcaption,
   p,
-  section {
+  .like {
     padding: 0.5rem 1rem;
   }
 
@@ -22,12 +22,18 @@ export const CardContainer = styled.article`
   }
 
   .user {
-    height: 60px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    padding: 0.875rem 1rem;
+
+    .container {
+      display: flex;
+      align-items: center;
+    }
 
     img {
-      height: 2.5rem;
+      width: 2rem;
       border-radius: 50%;
       border: 1px solid var(--light-grey);
     }
