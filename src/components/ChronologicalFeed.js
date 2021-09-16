@@ -1,4 +1,3 @@
-import axios from "axios";
 import {PropTypes} from "prop-types";
 import React, {useEffect, useState} from "react";
 
@@ -36,9 +35,7 @@ const ChronologicalFeed = ({baseUrl, fetchData, isLoading}) => {
   });
 
   useEffect(() => {
-    const request = axios.CancelToken.source();
-    fetchData(chronoUrl, setImages, request.token);
-    return () => request.cancel();
+    fetchData(chronoUrl, setImages);
   }, [fetchData, chronoUrl]);
 
   return (

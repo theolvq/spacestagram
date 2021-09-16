@@ -20,10 +20,10 @@ function App() {
 
   const baseUrl = `${APOD_URL}?api_key=${API_KEY}`;
 
-  const fetchData = useCallback(async (url, setState, token) => {
+  const fetchData = useCallback(async (url, setState) => {
     setIsLoading(true);
     try {
-      const {data} = await axios.get(url, {cancelToken: token});
+      const {data} = await axios.get(url);
       const processedData = processData(data);
       setState((prev) => prev.concat(processedData));
     } catch (err) {

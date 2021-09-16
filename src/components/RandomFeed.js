@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from "react";
 import {PropTypes} from "prop-types";
-import axios from "axios";
 
 import {FeedContainer} from "../styles/Feed.style";
 import useEvent from "../hooks/useEvent";
@@ -21,9 +20,7 @@ const RandomFeed = ({isLoading, fetchData, baseUrl}) => {
     }
   };
   useEffect(() => {
-    const request = axios.CancelToken.source();
-    fetchData(randomUrl, setImages, request.token);
-    return () => request.cancel();
+    fetchData(randomUrl, setImages);
   }, [fetchData, randomUrl]);
 
   useEvent("scroll", () => handleScroll());

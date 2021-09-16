@@ -22,6 +22,7 @@ export const GlobalStyles = styled.createGlobalStyle`
     font-family: "Open Sans", sans-serif;
     color: var(--dark-grey);
     background-color: var(--bg-off-white);
+    font-size: 0.875rem;
   }
 
   ul {
