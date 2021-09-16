@@ -47,3 +47,8 @@ export const formatDate = (pictureDate) => {
 export const backToTop = () => {
   window.scrollTo({top: 0, behavior: "smooth"});
 };
+
+export const substractTenDays = (date) =>
+  new Date(Date.parse(date) - 864000000).toLocaleDateString();
+
+// 864000000 is the number of milliseconds in ten days

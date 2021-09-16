@@ -12,6 +12,8 @@
 
   "rules": {
     "no-process-env": 0,
-    "@shopify/jsx-no-hardcoded-content": 1
+    "@shopify/jsx-no-hardcoded-content": 1,
+    "no-console": 1,
+    "no-unused-vars": 1
   }
 }
