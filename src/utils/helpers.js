@@ -1,5 +1,7 @@
 import {v4 as uuid} from "uuid";
 
+import {nasaLogo} from "../img";
+
 const randomLikes = () => Math.floor(Math.random() * 150);
 
 export const processData = (data) =>
@@ -10,6 +12,10 @@ export const processData = (data) =>
       ...image,
       likes: randomLikes(),
       id: uuid(),
+      user: {
+        username: "nasa",
+        picture: nasaLogo,
+      },
     }));
 
 const days = [
@@ -36,9 +42,8 @@ const months = [
   "November",
   "December",
 ];
-export const formatDate = (pictureDate) => {
-  const date = new Date(pictureDate);
-
+export const formatDate = (inputDate) => {
+  const date = new Date(inputDate);
   return `${days[date.getDay()]}, ${
     months[date.getMonth()]
   } ${date.getDate()}, ${date.getFullYear()}`;
@@ -50,5 +55,4 @@ export const backToTop = () => {
 
 export const substractTenDays = (date) =>
   new Date(Date.parse(date) - 864000000).toLocaleDateString();
-
 // 864000000 is the number of milliseconds in ten days

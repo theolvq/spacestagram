@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const CardContainer = styled.article`
   margin: 0 auto 1.5rem auto;
   border: 1px solid var(--light-grey);
-  background-color: #fff;
+  background-color: var(--bg-white);
 
   figcaption,
   p,
@@ -46,7 +46,7 @@ export const CardContainer = styled.article`
 
   .date {
     font-size: 0.75rem;
-    color: hsla(0, 0%, 35%, 1);
+    color: var(--md-grey);
   }
 
   .like {

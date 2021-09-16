@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 import {formatDate} from "../utils/helpers";
 import {Button, LikeButton} from "../styles/Buttons.style";
 import {CardContainer} from "../styles/Card.style";
-import {nasaLogo} from "../img";
 
 const Card = ({picture, like, unlike}) => {
   const [isLiked, setIsLiked] = useState(false);
@@ -28,8 +27,7 @@ const Card = ({picture, like, unlike}) => {
   };
   const likeLabel = picture.likes > 1 ? "Likes" : "Like";
   const dateLabel = `Published on ${formatDate(picture.date)}`;
-  const profilePicAlt = "nasa's profile pic";
-  const userLabel = "nasa";
+  const profilePicAlt = `${picture.user.username}'s profile picture`;
   const moreOptionsLabel = "More options";
   const likeButtonLabel = isLiked ? "Unlike" : "Like";
 
@@ -63,8 +61,8 @@ const Card = ({picture, like, unlike}) => {
     <CardContainer>
       <section className="user">
         <div className="container">
-          <img src={nasaLogo} alt={profilePicAlt} />
-          <p>{userLabel}</p>
+          <img src={picture.user.picture} alt={profilePicAlt} />
+          <p>{picture.user.username}</p>
         </div>
         <Button type="button">
           <svg

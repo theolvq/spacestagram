@@ -1,41 +1,40 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import {PropTypes} from "prop-types";
+import axios from "axios";
 
 import {FeedContainer} from "../styles/Feed.style";
 import useEvent from "../hooks/useEvent";
 
 import Feed from "./Feed";
 
-const RandomFeed = ({images, setImages, isLoading, fetchData, baseUrl}) => {
+const RandomFeed = ({isLoading, fetchData, baseUrl}) => {
+  const [images, setImages] = useState([]);
+
   const randomUrl = `${baseUrl}&count=10`;
 
-  const handleScroll = (url) => {
+  const handleScroll = () => {
     if (isLoading) {
       return;
     }
     if (window.scrollY + window.innerHeight >= document.body.offsetHeight) {
-      fetchData(url);
+      fetchData(randomUrl, setImages);
     }
   };
   useEffect(() => {
-    fetchData(randomUrl);
-    return () => {
-      setImages([]);
-    };
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+    const request = axios.CancelToken.source();
+    fetchData(randomUrl, setImages, request.token);
+    return () => request.cancel();
+  }, [fetchData, randomUrl]);
 
-  useEvent("scroll", () => handleScroll(randomUrl));
+  useEvent("scroll", () => handleScroll());
   return (
-    <FeedContainer images={images} setImages={setImages}>
-      <h1>Random Feed</h1>
+    <FeedContainer>
       <Feed images={images} setImages={setImages} />
     </FeedContainer>
   );
 };
 
 RandomFeed.propTypes = {
-  images: PropTypes.arrayOf(PropTypes.object).isRequired,
-  setImages: PropTypes.func.isRequired,
   baseUrl: PropTypes.string,
   fetchData: PropTypes.func,
   isLoading: PropTypes.bool,

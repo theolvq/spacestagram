@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Button = styled.button`
   cursor: pointer;
-  background-color: hsla(0, 0%, 0%, 0);
+  background-color: var(--transparent);
   border: none;
 `;
 
@@ -23,7 +23,7 @@ export const ArrowButton = styled(Button)`
   position: fixed;
   bottom: 1rem;
   right: 1rem;
-  background: #fff;
+  background: var(--bg-white);
 
   svg {
     transform: rotate(270deg);
