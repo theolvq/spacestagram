@@ -45,8 +45,9 @@ export const CardContainer = styled.article`
   }
 
   .date {
-    font-size: 0.75rem;
+    font-size: 0.6rem;
     color: var(--md-grey);
+    text-transform: uppercase;
   }
 
   .like {

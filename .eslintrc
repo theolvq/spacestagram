@@ -1,19 +1,18 @@
 {
   "env": {
-    "browser": true,
-    "node": true
+    "node": true,
+    "browser": true
   },
+  "plugins": ["prettier"],
   "extends": [
     "plugin:@shopify/esnext",
     "plugin:@shopify/react",
-    "prettier",
+    "plugin:prettier/recommended",
     "plugin:jsx-a11y/recommended"
   ],
 
   "rules": {
     "no-process-env": 0,
-    "@shopify/jsx-no-hardcoded-content": 1,
-    "no-console": 1,
-    "no-unused-vars": 1
+    "prettier/prettier": "error"
   }
 }
