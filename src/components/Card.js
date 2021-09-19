@@ -5,15 +5,18 @@ import {formatDate} from "../utils/helpers";
 import {Button, LikeButton} from "../styles/Buttons.style";
 import {CardContainer} from "../styles/Card.style";
 
+import Modal from "./Modal";
 import HeartIcon from "./HeartIcon";
 
 const Card = ({picture, like, unlike}) => {
   const [isLiked, setIsLiked] = useState(false);
-  const [isClicked, setIsClicked] = useState(false);
+  const [isHeartClicked, setIsHeartClicked] = useState(false);
+  const [isModalClicked, setIsModalClicked] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   const handleLikeClick = (id) => {
     let timeoutid;
-    setIsClicked(true);
+    setIsHeartClicked(true);
     if (isLiked) {
       unlike(id);
       setIsLiked(false);
@@ -23,8 +26,19 @@ const Card = ({picture, like, unlike}) => {
     }
     if (!timeoutid) {
       timeoutid = setTimeout(() => {
-        setIsClicked(false);
+        setIsHeartClicked(false);
       }, 250);
+    }
+  };
+
+  const handleMoreOptionsClick = () => {
+    let timeoutid;
+    setIsModalClicked(true);
+    setShowModal(!showModal);
+    if (!timeoutid) {
+      timeoutid = setTimeout(() => {
+        setIsModalClicked(false);
+      }, 100);
     }
   };
 
@@ -35,12 +49,18 @@ const Card = ({picture, like, unlike}) => {
 
   return (
     <CardContainer>
+      {showModal && (
+        <Modal
+          handleClick={handleMoreOptionsClick}
+          isClicked={isModalClicked}
+        />
+      )}
       <section className="user">
         <div className="container">
           <img src={picture.user.picture} alt={profilePicAlt} />
           <p>{picture.user.username}</p>
         </div>
-        <Button type="button">
+        <Button type="button" onClick={handleMoreOptionsClick}>
           <svg
             aria-label={moreOptionsLabel}
             height="24"
@@ -64,7 +84,7 @@ const Card = ({picture, like, unlike}) => {
       </figure>
       <section className="like">
         <LikeButton
-          isClicked={isClicked}
+          isClicked={isHeartClicked}
           isLiked={isLiked}
           onClick={() => handleLikeClick(picture.id)}
         >
