@@ -4,7 +4,7 @@
 
 ## Intro
 
-We are expanding Shopify's business to the universe and fetching photos from outer space thanks to NASA's amazing Astronomy Picture Of the Day API. The app initially loads 10 pictures and is infinitely scrollable with 10 more pictures every time you reach the bottom of the page.  
+We are expanding Shopify's business to the universe and fetching photos from outer space thanks to NASA's amazing Astronomy Picture Of the Day API. The app initially loads 10 pictures and is infinitely scrollable with 10 more pictures every time the user reaches the bottom of the page.  
 The live version of this app can be found at <https://spacestagram.theoleveque.com>.
 
 ## Running the project locally
@@ -14,18 +14,18 @@ You're going to need a NASA api key that you can get for free at <https://api.na
 1. Clone this repo `git clone https://github.com/daawascript/spacestagram.git`
 2. `cd spacestagram` and run `npm install`
 3. Create a file at the root of the project named `.env`
-4. Create a variable inside the `.env` file with the following name: `REACT_APP_API_KEY=<YOUR_API_KEY>` where you replace `<YOUR_API_KEY>` by the api key you received from NASA
-5. Run `npm start`
+4. Create a variable inside the `.env` file with the following name: `REACT_APP_API_KEY=<YOUR_API_KEY>` where you replace `<YOUR_API_KEY>` by the api key received from NASA
+5. Run `npm start` to start the app on `http://localhost:3000`
 
 ## Technologies & choices
 
 This project is built with React and Styled-Components.  
-React is great at creating interactive UI with reusable components. Styled-components helped to keep our CSS maintainable and the use of props directly in the styling is a feature that simplifies conditional styling/rendering greatly.  
+React is great at creating interactive UI with reusable components. Styled-components help to keep our CSS maintainable and the use of props directly in the styling is a feature that simplifies conditional styling/rendering greatly.  
 [Shopify's own eslint plugin](https://github.com/Shopify/web-configs/tree/main/packages/eslint-plugin) was used in order to respect the company's coding style.
 
 ## Accessibility
 
-I used the [a11y eslint jsx plugin](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y#readme) in order for the app to stay accessible throughout development. Lighthouse reports were also ran to make sure that nothing was left behind.
+I used the [a11y eslint jsx plugin](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y#readme) to adhere to accessibility guidelines throughout development. Lighthouse reports were also ran to make sure that nothing was left behind.
 I added `alt` and `aria-label` attributes for `svgs`, `img` and `button` elements. Semantic tags are used as much as possible, a couple `div` elements are present but they act as containers.
 
 ## Current Features
@@ -37,9 +37,9 @@ I added `alt` and `aria-label` attributes for `svgs`, `img` and `button` element
 - Like/unlike picture with animation (Shopify suggestion)
 - Loading state when waiting for NASA's API to return data (Shopify suggestion)
 
-Please see below for the features I will keep working on
-
 ## Future Features
+
+Main branch will be frozen to not interfere with Shopify's deadline on Sept 21st and further progress will be continued on branch `develop` and other `feature` branches.
 
 - Search box for NASA image and video library
 - Mars Rover Feed

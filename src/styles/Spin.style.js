@@ -6,7 +6,7 @@ export const SpinLoader = styled.div`
   position: fixed;
   bottom: 1rem;
   left: 50%;
-  transform: translate(0, -50%);
+  transform: translateX(-50%);
 
   svg {
     width: 100%;
