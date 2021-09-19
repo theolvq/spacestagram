@@ -4,6 +4,7 @@ import {SpinLoader} from "../styles/Spin.style";
 
 const Loader = () => {
   const loadLabel = "Loading";
+
   return (
     <SpinLoader>
       <svg

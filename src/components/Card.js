@@ -27,6 +27,7 @@ const Card = ({picture, like, unlike}) => {
       }, 250);
     }
   };
+
   const likeLabel = picture.likes > 1 ? "Likes" : "Like";
   const dateLabel = `Published on ${formatDate(picture.date)}`;
   const profilePicAlt = `${picture.user.username}'s profile picture`;

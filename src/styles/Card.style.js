@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const CardContainer = styled.article`
+  max-width: 614px;
   margin: 0 auto 1.5rem auto;
   border: 1px solid var(--light-grey);
   background-color: var(--bg-white);

@@ -9,6 +9,7 @@ import Feed from "./Feed";
 
 const ChronologicalFeed = ({baseUrl, fetchData, isLoading}) => {
   const today = new Date().toLocaleDateString();
+
   const [images, setImages] = useState([]);
   const [dates, setDates] = useState({
     start: substractTenDays(today),
@@ -30,9 +31,7 @@ const ChronologicalFeed = ({baseUrl, fetchData, isLoading}) => {
     }
   };
 
-  useEvent("scroll", () => {
-    handleScroll();
-  });
+  useEvent("scroll", handleScroll);
 
   useEffect(() => {
     fetchData(chronoUrl, setImages);

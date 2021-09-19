@@ -19,11 +19,13 @@ const RandomFeed = ({isLoading, fetchData, baseUrl}) => {
       fetchData(randomUrl, setImages);
     }
   };
+
   useEffect(() => {
     fetchData(randomUrl, setImages);
   }, [fetchData, randomUrl]);
 
-  useEvent("scroll", () => handleScroll());
+  useEvent("scroll", handleScroll);
+
   return (
     <FeedContainer>
       <Feed images={images} setImages={setImages} />

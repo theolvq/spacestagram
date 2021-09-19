@@ -10,5 +10,5 @@ export const ErrorSnackBar = styled.div`
   position: fixed;
   background-color: var(--light-grey);
   left: 0;
-  bottom: 0px;
+  bottom: 0;
 `;

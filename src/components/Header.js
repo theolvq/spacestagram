@@ -7,6 +7,7 @@ const Header = () => {
   const titleLabel = "Spacestagram";
   const homeLabel = "Home/Pictures in Chronological order";
   const randomLabel = "Random Pictures";
+
   return (
     <StyledHeader>
       <div className="container">

@@ -6,9 +6,5 @@ export const FeedContainer = styled.section`
   justify-content: space-between;
   align-items: center;
   min-height: 100vh;
-  margin: 1.5rem 0 3rem 0;
-
-  & > *:not(header) {
-    max-width: 614px;
-  }
+  margin: 1rem 0 3rem 0;
 `;

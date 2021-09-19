@@ -2,6 +2,7 @@ import React from "react";
 
 const HeartIcon = ({isLiked}) => {
   const likeButtonLabel = isLiked ? "Unlike" : "Like";
+
   if (isLiked) {
     return (
       <svg
