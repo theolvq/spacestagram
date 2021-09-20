@@ -4,6 +4,7 @@ import {nasaLogo} from "../img";
 
 const randomLikes = () => Math.floor(Math.random() * 150);
 
+// the following function simulates a database query where the data would come back with an ID and an user
 export const processData = (data) =>
   data
     .filter((obj) => obj.media_type === "image")
@@ -54,5 +55,9 @@ export const backToTop = () => {
 };
 
 export const substractTenDays = (date) =>
-  new Date(Date.parse(date) - 864000000).toLocaleDateString();
+  new Date(Date.parse(date) - 864000000).toLocaleDateString("en-CA", {
+    year: "numeric",
+    month: "numeric",
+    day: "numeric",
+  });
 // 864000000 is the number of milliseconds in ten days

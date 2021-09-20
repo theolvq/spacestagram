@@ -8,7 +8,11 @@ import {substractTenDays} from "../utils/helpers";
 import Feed from "./Feed";
 
 const ChronologicalFeed = ({baseUrl, fetchData, isLoading}) => {
-  const today = new Date().toLocaleDateString();
+  const today = new Date().toLocaleDateString("en-CA", {
+    year: "numeric",
+    month: "numeric",
+    day: "numeric",
+  });
 
   const [images, setImages] = useState([]);
   const [dates, setDates] = useState({

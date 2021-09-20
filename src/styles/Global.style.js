@@ -3,7 +3,7 @@ import * as styled from "styled-components";
 export const GlobalStyles = styled.createGlobalStyle`
   :root {
     --light-grey: hsl(0, 0%, 85%);
-    --md-grey: hsl(0, 0%, 56%);
+    --md-grey: hsl(0, 0%, 46%);
     --dark-grey: hsl(0, 0%, 15%);
     --bg-off-white: hsl(0, 0%, 98%);
     --bg-white: hsl(0, 0%, 100%);

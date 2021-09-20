@@ -36,7 +36,7 @@ I added `alt` and `aria-label` attributes for `svgs`, `img` and `button` element
 - Random feed from APOD
 - Like/unlike picture with animation (Shopify suggestion)
 - Loading state when waiting for NASA's API to return data (Shopify suggestion)
-- When clicking on the "More Options" button a modal will be shown. This modal is for presentation purposes only and is pretty generic for the moment.
+- "More Options" modal when clicking on three dots at the top of each card. This modal is for presentation purposes only and doesn't have any functionality yet.
 
 ## Future Features
 
