@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import {Button} from "../styles/Buttons.style";
 import {StyledModal} from "../styles/Modal.style";
 
-const Modal = ({handleClick, isClicked}) => {
+const Modal = ({handleClick}) => {
   const buttons = [
     {id: 1, label: "Report"},
     {id: 2, label: "Unfollow"},
@@ -17,7 +17,7 @@ const Modal = ({handleClick, isClicked}) => {
   ];
 
   return (
-    <StyledModal onClick={handleClick} isClicked={isClicked}>
+    <StyledModal onClick={handleClick}>
       <div>
         {buttons.map((button) => (
           <Button key={button.id} onClick={handleClick}>
@@ -31,7 +31,6 @@ const Modal = ({handleClick, isClicked}) => {
 
 Modal.propTypes = {
   handleClick: PropTypes.func,
-  isClicked: PropTypes.bool,
 };
 
 export default Modal;

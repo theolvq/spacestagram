@@ -11,7 +11,6 @@ import HeartIcon from "./HeartIcon";
 const Card = ({picture, like, unlike}) => {
   const [isLiked, setIsLiked] = useState(false);
   const [isHeartClicked, setIsHeartClicked] = useState(false);
-  const [isModalClicked, setIsModalClicked] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
   const handleLikeClick = (id) => {
@@ -27,19 +26,12 @@ const Card = ({picture, like, unlike}) => {
     if (!timeoutid) {
       timeoutid = setTimeout(() => {
         setIsHeartClicked(false);
-      }, 250);
+      }, 500);
     }
   };
 
   const handleMoreOptionsClick = () => {
-    let timeoutid;
-    setIsModalClicked(true);
     setShowModal(!showModal);
-    if (!timeoutid) {
-      timeoutid = setTimeout(() => {
-        setIsModalClicked(false);
-      }, 100);
-    }
   };
 
   const likeLabel = picture.likes > 1 ? "Likes" : "Like";
@@ -49,12 +41,7 @@ const Card = ({picture, like, unlike}) => {
 
   return (
     <CardContainer>
-      {showModal && (
-        <Modal
-          handleClick={handleMoreOptionsClick}
-          isClicked={isModalClicked}
-        />
-      )}
+      {showModal && <Modal handleClick={handleMoreOptionsClick} />}
       <section className="user">
         <div className="container">
           <img src={picture.user.picture} alt={profilePicAlt} />

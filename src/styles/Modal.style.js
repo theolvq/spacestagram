@@ -11,9 +11,18 @@ export const StyledModal = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  opacity: ${({isClicked}) => (isClicked ? 0 : 1)};
-  transform: ${({isClicked}) => (isClicked ? "scale(1.2)" : "scale(1)")};
-  transition: 50ms ease-out;
+  animation: modal 100ms ease-out;
+
+  @keyframes modal {
+    from {
+      transform: scale(1.25);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
 
   div {
     width: 400px;
