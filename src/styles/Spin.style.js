@@ -1,4 +1,13 @@
-import styled from "styled-components";
+import styled, {keyframes} from "styled-components";
+
+const loaderSpin = keyframes`
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+`;
 
 export const SpinLoader = styled.div`
   margin: 0 auto;
@@ -12,15 +21,6 @@ export const SpinLoader = styled.div`
     width: 100%;
     height: auto;
     fill: url(#spin-gradient);
-    animation: loader-spin infinite 2s linear;
-  }
-
-  @keyframes loader-spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
+    animation: ${loaderSpin} infinite 2s linear;
   }
 `;

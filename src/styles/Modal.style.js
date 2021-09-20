@@ -1,4 +1,15 @@
-import styled from "styled-components";
+import styled, {keyframes} from "styled-components";
+
+const modalAnimation = keyframes`
+    from {
+      transform: scale(1.2);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+`;
 
 export const StyledModal = styled.div`
   position: fixed;
@@ -11,18 +22,7 @@ export const StyledModal = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  animation: modal 100ms ease-out;
-
-  @keyframes modal {
-    from {
-      transform: scale(1.25);
-      opacity: 0;
-    }
-    to {
-      transform: scale(1);
-      opacity: 1;
-    }
-  }
+  animation: ${modalAnimation} 100ms ease-out;
 
   div {
     width: 400px;

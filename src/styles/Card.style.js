@@ -26,11 +26,13 @@ export const CardContainer = styled.article`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0.875rem 1rem;
+    max-height: 3.75rem;
 
     .container {
       display: flex;
       align-items: center;
+      gap: 0.875rem;
+      padding: 1rem;
     }
 
     img {
@@ -39,8 +41,7 @@ export const CardContainer = styled.article`
       border: 1px solid var(--light-grey);
     }
 
-    p {
-      font-size: 0.875rem;
+    span {
       font-weight: 600;
     }
   }

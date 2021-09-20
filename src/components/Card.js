@@ -26,7 +26,7 @@ const Card = ({picture, like, unlike}) => {
     if (!timeoutid) {
       timeoutid = setTimeout(() => {
         setIsHeartClicked(false);
-      }, 500);
+      }, 450);
     }
   };
 
@@ -42,10 +42,10 @@ const Card = ({picture, like, unlike}) => {
   return (
     <CardContainer>
       {showModal && <Modal handleClick={handleMoreOptionsClick} />}
-      <section className="user">
+      <header className="user">
         <div className="container">
           <img src={picture.user.picture} alt={profilePicAlt} />
-          <p>{picture.user.username}</p>
+          <span>{picture.user.username}</span>
         </div>
         <Button type="button" onClick={handleMoreOptionsClick}>
           <svg
@@ -62,7 +62,7 @@ const Card = ({picture, like, unlike}) => {
             <circle cx="17.5" cy="12" r="1.5" />
           </svg>
         </Button>
-      </section>
+      </header>
       <figure>
         <img src={picture.url} alt={picture.title} />
         <figcaption>{picture.title}</figcaption>
