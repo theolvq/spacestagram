@@ -7,6 +7,6 @@ export interface HighLevelFeedProps {
   fetchData: (
     url: string,
     setState: React.Dispatch<SetStateAction<Image[]>>
-  ) => Promise<Image[]>;
+  ) => Promise<void>;
   isLoading: boolean;
 }

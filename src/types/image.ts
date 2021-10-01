@@ -3,12 +3,16 @@ export interface User {
   username: string;
 }
 
-export interface Image {
-  likes: number;
-  user: User;
+export interface ImageFromAPI {
   date: Date;
   url: string;
   title: string;
   explanation: string;
+  media_type: string;
+}
+
+export interface Image extends ImageFromAPI {
+  likes: number;
+  user: User;
   id: string;
 }

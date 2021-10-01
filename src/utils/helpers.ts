@@ -1,11 +1,12 @@
 import {v4 as uuid} from "uuid";
 
+import {ImageFromAPI} from "../types/image";
 import {nasaLogo} from "../img";
 
 const randomLikes = () => Math.floor(Math.random() * 150);
 
 // the following function simulates a database query where the data would come back with an ID and an user
-export const processData = (data) =>
+export const processData = (data: ImageFromAPI[]) =>
   data
     .filter((obj) => obj.media_type === "image")
     .reverse()
@@ -43,7 +44,7 @@ const months = [
   "November",
   "December",
 ];
-export const formatDate = (inputDate) => {
+export const formatDate = (inputDate: Date) => {
   const date = new Date(inputDate);
   return `${days[date.getDay()]}, ${
     months[date.getMonth()]
@@ -54,7 +55,7 @@ export const backToTop = () => {
   window.scrollTo({top: 0, behavior: "smooth"});
 };
 
-export const substractTenDays = (date) =>
+export const substractTenDays = (date: string) =>
   new Date(Date.parse(date) - 864000000).toLocaleDateString("en-CA", {
     year: "numeric",
     month: "numeric",

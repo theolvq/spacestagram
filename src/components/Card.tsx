@@ -1,5 +1,4 @@
 import React, {useState} from "react";
-import PropTypes from "prop-types";
 
 import {formatDate} from "../utils/helpers";
 import {Button, LikeButton} from "../styles/Buttons.style";
@@ -90,12 +89,6 @@ const Card: React.FC<CardProps> = ({picture, like, unlike}) => {
       </section>
     </CardContainer>
   );
-};
-
-Card.propTypes = {
-  picture: PropTypes.object.isRequired,
-  like: PropTypes.func.isRequired,
-  unlike: PropTypes.func.isRequired,
 };
 
 export default Card;

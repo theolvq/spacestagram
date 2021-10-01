@@ -19,7 +19,8 @@ You're going to need a NASA api key that you can get for free at <https://api.na
 
 ## Technologies & choices
 
-This project is built with React and Styled-Components.  
+This project is built with TypeScript (TS), React and Styled-Components.  
+Even though TS is best at building and maintaining large scale application I think that it helps a lot in keeping our code clean and more maintainable. I started by writing the whole application in JavaScript but refactored it later in TS as it was a good exercise. This is my first TS app.
 React is great at creating interactive UI with reusable components. Styled-components help to keep our CSS maintainable and the use of props directly in the styling is a feature that simplifies conditional styling/rendering greatly.  
 [Shopify's own eslint plugin](https://github.com/Shopify/web-configs/tree/main/packages/eslint-plugin) was used in order to respect the company's coding style.
 
