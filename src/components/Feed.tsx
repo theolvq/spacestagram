@@ -1,27 +1,13 @@
-import React from "react";
+import React, {SetStateAction} from "react";
 
 import {FeedContainer} from "../styles/Feed.style";
+import {Image} from "../types/image";
 
 import Card from "./Card";
 
-interface User {
-  picture: string;
-  username: string;
-}
-
-interface Image {
-  likes: number;
-  user: User;
-  date: Date;
-  url: string;
-  title: string;
-  explanation: string;
-  id: string;
-}
-
 interface FeedProps {
   images: Image[];
-  setImages: (prevState: React.SetStateAction<Image[]>) => Image[];
+  setImages: React.Dispatch<SetStateAction<Image[]>>;
 }
 
 const Feed: React.FC<FeedProps> = ({images, setImages}) => {

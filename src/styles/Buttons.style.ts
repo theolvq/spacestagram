@@ -19,7 +19,7 @@ const animation = css`
   animation: ${likeAnimation} 450ms ease-in-out;
 `;
 
-const colorChange = ({isLiked}) => css`
+const colorChange = ({isLiked}: {isLiked: boolean}) => css`
   ${isLiked ? "var(--red)" : "var(--dark-grey)"}
 `;
 

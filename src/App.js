@@ -3,9 +3,9 @@ import React, {useCallback, useState} from "react";
 import {Route, Switch} from "react-router-dom";
 
 import {GlobalStyles} from "./styles/Global.style";
-import Loader from "./components/Loader.tsx";
-import Header from "./components/Header.tsx";
-import Footer from "./components/Footer.tsx";
+import Loader from "./components/Loader";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 import Error from "./components/Error";
 import {processData} from "./utils/helpers";
 import ChronologicalFeed from "./components/ChronologicalFeed";
