@@ -5,7 +5,7 @@ import useEvent from "../hooks/useEvent";
 import {FeedContainer} from "../styles/Feed.style";
 import {substractTenDays} from "../utils/helpers";
 
-import Feed from "./Feed";
+import Feed from "./Feed.tsx";
 
 const ChronologicalFeed = ({baseUrl, fetchData, isLoading}) => {
   const today = new Date().toLocaleDateString("en-CA", {

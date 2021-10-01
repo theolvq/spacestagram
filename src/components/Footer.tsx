@@ -3,7 +3,7 @@ import React from "react";
 import {ArrowButton} from "../styles/Buttons.style";
 import {backToTop} from "../utils/helpers";
 
-const Footer = () => {
+const Footer: React.FC = () => {
   const backToTopLabel = "Back to Top";
   return (
     <footer>

@@ -6,7 +6,7 @@ import {Button, LikeButton} from "../styles/Buttons.style";
 import {CardContainer} from "../styles/Card.style";
 
 import Modal from "./Modal";
-import HeartIcon from "./HeartIcon";
+import HeartIcon from "./HeartIcon.tsx";
 
 const Card = ({picture, like, unlike}) => {
   const [isLiked, setIsLiked] = useState(false);

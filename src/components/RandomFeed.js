@@ -4,7 +4,7 @@ import {PropTypes} from "prop-types";
 import {FeedContainer} from "../styles/Feed.style";
 import useEvent from "../hooks/useEvent";
 
-import Feed from "./Feed";
+import Feed from "./Feed.tsx";
 
 const RandomFeed = ({isLoading, fetchData, baseUrl}) => {
   const [images, setImages] = useState([]);

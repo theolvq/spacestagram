@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 
 import {StyledHeader} from "../styles/Header.style";
 
-const Header = () => {
+const Header: React.FC = () => {
   const titleLabel = "Spacestagram";
   const homeLabel = "Home/Pictures in Chronological order";
   const randomLabel = "Random Pictures";
