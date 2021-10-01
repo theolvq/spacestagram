@@ -1,19 +1,25 @@
 import React, {useState} from "react";
-import PropTypes from "prop-types";
 
 import {formatDate} from "../utils/helpers";
 import {Button, LikeButton} from "../styles/Buttons.style";
 import {CardContainer} from "../styles/Card.style";
+import {Image} from "../types/image";
 
 import Modal from "./Modal";
 import HeartIcon from "./HeartIcon";
 
-const Card = ({picture, like, unlike}) => {
+interface CardProps {
+  picture: Image;
+  like: (id: string) => void;
+  unlike: (id: string) => void;
+}
+
+const Card: React.FC<CardProps> = ({picture, like, unlike}) => {
   const [isLiked, setIsLiked] = useState(false);
   const [isHeartClicked, setIsHeartClicked] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
-  const handleLikeClick = (id) => {
+  const handleLikeClick = (id: string) => {
     let timeoutid;
     setIsHeartClicked(true);
     if (isLiked) {
@@ -83,12 +89,6 @@ const Card = ({picture, like, unlike}) => {
       </section>
     </CardContainer>
   );
-};
-
-Card.propTypes = {
-  picture: PropTypes.object.isRequired,
-  like: PropTypes.func.isRequired,
-  unlike: PropTypes.func.isRequired,
 };
 
 export default Card;

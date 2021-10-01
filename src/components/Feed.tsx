@@ -1,22 +1,27 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React, {SetStateAction} from "react";
 
 import {FeedContainer} from "../styles/Feed.style";
+import {Image} from "../types/image";
 
 import Card from "./Card";
 
-const Feed = ({images, setImages}) => {
-  const like = (id) => {
-    setImages((prev) =>
-      prev.map((image) =>
+interface FeedProps {
+  images: Image[];
+  setImages: React.Dispatch<SetStateAction<Image[]>>;
+}
+
+const Feed: React.FC<FeedProps> = ({images, setImages}) => {
+  const like = (id: string): void => {
+    setImages((prev: Image[]) =>
+      prev.map((image: Image) =>
         image.id === id ? {...image, likes: image.likes + 1} : image
       )
     );
   };
 
-  const unlike = (id) => {
-    setImages((prev) =>
-      prev.map((image) =>
+  const unlike = (id: string): void => {
+    setImages((prev: Image[]) =>
+      prev.map((image: Image) =>
         image.id === id ? {...image, likes: image.likes - 1} : image
       )
     );
@@ -28,11 +33,6 @@ const Feed = ({images, setImages}) => {
       ))}
     </FeedContainer>
   );
-};
-
-Feed.propTypes = {
-  images: PropTypes.arrayOf(PropTypes.object).isRequired,
-  setImages: PropTypes.func.isRequired,
 };
 
 export default Feed;

@@ -15,11 +15,16 @@ const likeAnimation = keyframes`
     }
 `;
 
+interface LikeButtonProps {
+  isClicked: boolean;
+  isLiked: boolean;
+}
+
 const animation = css`
   animation: ${likeAnimation} 450ms ease-in-out;
 `;
 
-const colorChange = ({isLiked}) => css`
+const colorChange = ({isLiked}: LikeButtonProps) => css`
   ${isLiked ? "var(--red)" : "var(--dark-grey)"}
 `;
 
@@ -34,7 +39,7 @@ export const Button = styled.button`
 `;
 
 export const LikeButton = styled(Button)`
-  ${({isClicked}) => isClicked && animation}
+  ${({isClicked}: LikeButtonProps) => isClicked && animation}
 
   svg {
     fill: ${colorChange};

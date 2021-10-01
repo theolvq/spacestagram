@@ -2,7 +2,7 @@ import React from "react";
 
 import {SpinLoader} from "../styles/Spin.style";
 
-const Loader = () => {
+const Loader: React.FC = () => {
   const loadLabel = "Loading";
 
   return (

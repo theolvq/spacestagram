@@ -1,20 +1,25 @@
-import {PropTypes} from "prop-types";
 import React, {useEffect, useState} from "react";
 
 import useEvent from "../hooks/useEvent";
 import {FeedContainer} from "../styles/Feed.style";
+import {Image} from "../types/image";
+import {HighLevelFeedProps} from "../types/feed";
 import {substractTenDays} from "../utils/helpers";
 
 import Feed from "./Feed";
 
-const ChronologicalFeed = ({baseUrl, fetchData, isLoading}) => {
+const ChronologicalFeed: React.FC<HighLevelFeedProps> = ({
+  baseUrl,
+  fetchData,
+  isLoading,
+}) => {
   const today = new Date().toLocaleDateString("en-CA", {
     year: "numeric",
     month: "numeric",
     day: "numeric",
   });
 
-  const [images, setImages] = useState([]);
+  const [images, setImages] = useState<Image[]>([]);
   const [dates, setDates] = useState({
     start: substractTenDays(today),
     end: today,
@@ -46,12 +51,6 @@ const ChronologicalFeed = ({baseUrl, fetchData, isLoading}) => {
       <Feed images={images} setImages={setImages} />
     </FeedContainer>
   );
-};
-
-ChronologicalFeed.propTypes = {
-  baseUrl: PropTypes.string,
-  fetchData: PropTypes.func,
-  isLoading: PropTypes.bool,
 };
 
 export default ChronologicalFeed;
