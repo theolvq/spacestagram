@@ -59,3 +59,11 @@ export const ArrowButton = styled(Button)`
     fill: var(--dark-grey);
   }
 `;
+
+export const SaveButton = styled(Button)`
+  margin-left: auto;
+
+  :hover {
+    fill: var(--md-grey);
+  }
+`;

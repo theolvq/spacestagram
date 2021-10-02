@@ -3,7 +3,7 @@ import React, {SetStateAction} from "react";
 import {FeedContainer} from "../styles/Feed.style";
 import {Image} from "../types/image";
 
-import Card from "./Card";
+import Card from "./Card/Card";
 
 interface FeedProps {
   images: Image[];

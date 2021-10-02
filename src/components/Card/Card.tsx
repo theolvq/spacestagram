@@ -1,12 +1,13 @@
 import React, {useState} from "react";
 
-import {formatDate} from "../utils/helpers";
-import {Button, LikeButton} from "../styles/Buttons.style";
-import {CardContainer} from "../styles/Card.style";
-import {Image} from "../types/image";
+import {formatDate} from "../../utils/helpers";
+import {Button} from "../../styles/Buttons.style";
+import {CardContainer} from "../../styles/Card.style";
+import {Image} from "../../types/image";
+import Modal from "../Modal";
 
-import Modal from "./Modal";
-import HeartIcon from "./HeartIcon";
+import MoreOptionsIcon from "./MoreOptionsIcon";
+import ImageFooter from "./ImageFooter";
 
 interface CardProps {
   picture: Image;
@@ -43,7 +44,6 @@ const Card: React.FC<CardProps> = ({picture, like, unlike}) => {
   const likeLabel = picture.likes > 1 ? "Likes" : "Like";
   const dateLabel = `Published on ${formatDate(picture.date)}`;
   const profilePicAlt = `${picture.user.username}'s profile picture`;
-  const moreOptionsLabel = "More options";
 
   return (
     <CardContainer>
@@ -54,19 +54,7 @@ const Card: React.FC<CardProps> = ({picture, like, unlike}) => {
           <span>{picture.user.username}</span>
         </div>
         <Button type="button" onClick={handleMoreOptionsClick}>
-          <svg
-            aria-label={moreOptionsLabel}
-            height="24"
-            role="img"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <title>{moreOptionsLabel}</title>
-            <circle cx="12" cy="12" r="1.5" />
-            <circle cx="6.5" cy="12" r="1.5" />
-            <circle cx="17.5" cy="12" r="1.5" />
-          </svg>
+          <MoreOptionsIcon />
         </Button>
       </header>
       <figure>
@@ -75,18 +63,15 @@ const Card: React.FC<CardProps> = ({picture, like, unlike}) => {
         <p className="date">{dateLabel}</p>
         <p className="desc">{picture.explanation} </p>
       </figure>
-      <section className="like">
-        <LikeButton
-          isClicked={isHeartClicked}
-          isLiked={isLiked}
-          onClick={() => handleLikeClick(picture.id)}
-        >
-          <HeartIcon isLiked={isLiked} />
-        </LikeButton>
-        <p>
-          {picture.likes} {likeLabel}
-        </p>
-      </section>
+      <ImageFooter
+        isHeartClicked={isHeartClicked}
+        handleLikeClick={handleLikeClick}
+        picture={picture}
+        isLiked={isLiked}
+      />
+      <p>
+        {picture.likes} {likeLabel}
+      </p>
     </CardContainer>
   );
 };
