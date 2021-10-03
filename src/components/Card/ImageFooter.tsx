@@ -22,7 +22,7 @@ const ImageFooter: React.FC<ImageFooterProps> = ({
   picture,
 }) => {
   return (
-    <section className="like">
+    <section className="footer">
       <LikeButton
         isClicked={isHeartClicked}
         isLiked={isLiked}

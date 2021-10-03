@@ -1,13 +1,13 @@
 import React, {useState} from "react";
 
 import {formatDate} from "../../utils/helpers";
-import {Button} from "../../styles/Buttons.style";
-import {CardContainer} from "../../styles/Card.style";
+import {CardContainer} from "../../styles/Card/Card.style";
 import {Image} from "../../types/image";
 import Modal from "../Modal";
 
-import MoreOptionsIcon from "./MoreOptionsIcon";
 import ImageFooter from "./ImageFooter";
+import CardHeader from "./CardHeader";
+import CommentForm from "./CommentForm";
 
 interface CardProps {
   picture: Image;
@@ -40,38 +40,41 @@ const Card: React.FC<CardProps> = ({picture, like, unlike}) => {
   const handleMoreOptionsClick = () => {
     setShowModal(!showModal);
   };
-
-  const likeLabel = picture.likes > 1 ? "Likes" : "Like";
+  const randomUser = "hummingbird";
+  // const likeLabel = `Liked by ${randomUser} and ${picture.likes - 1} others`;
   const dateLabel = `Published on ${formatDate(picture.date)}`;
-  const profilePicAlt = `${picture.user.username}'s profile picture`;
 
   return (
     <CardContainer>
       {showModal && <Modal handleClick={handleMoreOptionsClick} />}
-      <header className="user">
-        <div className="container">
-          <img src={picture.user.picture} alt={profilePicAlt} />
-          <span>{picture.user.username}</span>
-        </div>
-        <Button type="button" onClick={handleMoreOptionsClick}>
-          <MoreOptionsIcon />
-        </Button>
-      </header>
+      <CardHeader
+        handleMoreOptionsClick={handleMoreOptionsClick}
+        picture={picture}
+      />
       <figure>
         <img src={picture.url} alt={picture.title} />
+        <ImageFooter
+          isHeartClicked={isHeartClicked}
+          handleLikeClick={handleLikeClick}
+          picture={picture}
+          isLiked={isLiked}
+        />
+        {/*  eslint-disable-next-line @shopify/jsx-no-hardcoded-content */}
+        <p>
+          Liked by{" "}
+          <span>
+            <a href="/randomUser">{randomUser}</a>
+          </span>{" "}
+          and{" "}
+          {/*  eslint-disable-next-line @shopify/jsx-no-hardcoded-content */}
+          <a href="/likes">{picture.likes - 1} others </a>
+        </p>
         <figcaption>{picture.title}</figcaption>
         <p className="date">{dateLabel}</p>
         <p className="desc">{picture.explanation} </p>
       </figure>
-      <ImageFooter
-        isHeartClicked={isHeartClicked}
-        handleLikeClick={handleLikeClick}
-        picture={picture}
-        isLiked={isLiked}
-      />
-      <p>
-        {picture.likes} {likeLabel}
-      </p>
+
+      <CommentForm />
     </CardContainer>
   );
 };
