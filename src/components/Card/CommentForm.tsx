@@ -1,8 +1,8 @@
-import React, {useState} from "react";
+import React, {KeyboardEventHandler, useState} from "react";
 
 import {PostCommentButton, EmojiButton} from "../../styles/Buttons.style";
 import {StyledCommentForm} from "../../styles/Card/CommentForm.style";
-import {Comment} from "../../types/Comment";
+import {Comment} from "../../types/comment";
 
 import EmojiIcon from "./EmojiIcon";
 
@@ -22,8 +22,7 @@ const CommentForm: React.FC<CommentFormProps> = ({commentRef, setComments}) => {
     setComment(event.target.value);
   };
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
+  const submitForm = () => {
     const newComment = {
       author: "hummingbird",
       text: comment,
@@ -32,9 +31,24 @@ const CommentForm: React.FC<CommentFormProps> = ({commentRef, setComments}) => {
     setComment("");
   };
 
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    submitForm();
+  };
+
+  const submitOnEnter: KeyboardEventHandler = (
+    event: React.KeyboardEvent<HTMLTextAreaElement>
+  ) => {
+    if (event.code !== "Enter") {
+      return;
+    }
+    event.preventDefault();
+    submitForm();
+  };
+
   return (
     <StyledCommentForm onSubmit={handleSubmit}>
-      <EmojiButton>
+      <EmojiButton type="button">
         <EmojiIcon />
       </EmojiButton>
       <textarea
@@ -47,6 +61,7 @@ const CommentForm: React.FC<CommentFormProps> = ({commentRef, setComments}) => {
         onChange={handleChange}
         placeholder={commentLabel}
         ref={commentRef}
+        onKeyDown={submitOnEnter}
       />
       <PostCommentButton type="submit" disabled={isDisabled}>
         {commentButtonLabel}

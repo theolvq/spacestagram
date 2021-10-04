@@ -3,12 +3,14 @@ import React, {useRef, useState} from "react";
 import {formatDate} from "../../utils/helpers";
 import {CardContainer} from "../../styles/Card/Card.style";
 import {Image} from "../../types/image";
-import {Comment} from "../../types/Comment";
+import {Comment} from "../../types/comment";
 import Modal from "../Modal";
 
 import ImageFooter from "./ImageFooter";
 import CardHeader from "./CardHeader";
 import CommentForm from "./CommentForm";
+import LikeLabel from "./LikeLabel";
+import CommentList from "./CommentList";
 
 interface CardProps {
   picture: Image;
@@ -62,8 +64,6 @@ const Card: React.FC<CardProps> = ({picture, like, unlike, save, remove}) => {
     }
   };
 
-  const randomUser = "hummingbird";
-  // const likeLabel = `Liked by ${randomUser} and ${picture.likes - 1} others`;
   const dateLabel = `Published on ${formatDate(picture.date)}`;
 
   return (
@@ -84,26 +84,12 @@ const Card: React.FC<CardProps> = ({picture, like, unlike, save, remove}) => {
           handleSaveClick={handleSaveClick}
           isSaved={isSaved}
         />
-        {/*  eslint-disable-next-line @shopify/jsx-no-hardcoded-content */}
-        <p>
-          Liked by{" "}
-          <span>
-            <a href="/randomUser">{randomUser}</a>
-          </span>{" "}
-          and{" "}
-          {/*  eslint-disable-next-line @shopify/jsx-no-hardcoded-content */}
-          <a href="/likes">{picture.likes - 1} others </a>
-        </p>
+        <LikeLabel picture={picture} />
         <figcaption>{picture.title}</figcaption>
         <p className="date">{dateLabel}</p>
         <p className="desc">{picture.explanation} </p>
       </figure>
-      {comments.map((comment) => (
-        <div key={comment.text}>
-          <a href={`/${comment.author}`}>{comment.author}</a>{" "}
-          <span>{comment.text}</span>
-        </div>
-      ))}
+      <CommentList comments={comments} />
       <CommentForm commentRef={commentRef} setComments={setComments} />
     </CardContainer>
   );
