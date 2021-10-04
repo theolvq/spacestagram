@@ -1,8 +1,9 @@
-import React, {useState} from "react";
+import React, {useRef, useState} from "react";
 
 import {formatDate} from "../../utils/helpers";
 import {CardContainer} from "../../styles/Card/Card.style";
 import {Image} from "../../types/image";
+import {Comment} from "../../types/Comment";
 import Modal from "../Modal";
 
 import ImageFooter from "./ImageFooter";
@@ -19,6 +20,10 @@ const Card: React.FC<CardProps> = ({picture, like, unlike}) => {
   const [isLiked, setIsLiked] = useState(false);
   const [isHeartClicked, setIsHeartClicked] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const [isSaved, setIsSaved] = useState(false);
+  const [comments, setComments] = useState<Comment[]>([]);
+
+  const commentRef = useRef<null | HTMLTextAreaElement>(null);
 
   const handleLikeClick = (id: string) => {
     let timeoutid;
@@ -40,6 +45,15 @@ const Card: React.FC<CardProps> = ({picture, like, unlike}) => {
   const handleMoreOptionsClick = () => {
     setShowModal(!showModal);
   };
+
+  const handleCommentClick = () => {
+    commentRef.current?.focus();
+  };
+
+  const handleSaveClick = () => {
+    setIsSaved(!isSaved);
+  };
+
   const randomUser = "hummingbird";
   // const likeLabel = `Liked by ${randomUser} and ${picture.likes - 1} others`;
   const dateLabel = `Published on ${formatDate(picture.date)}`;
@@ -56,8 +70,11 @@ const Card: React.FC<CardProps> = ({picture, like, unlike}) => {
         <ImageFooter
           isHeartClicked={isHeartClicked}
           handleLikeClick={handleLikeClick}
+          handleCommentClick={handleCommentClick}
           picture={picture}
           isLiked={isLiked}
+          handleSaveClick={handleSaveClick}
+          isSaved={isSaved}
         />
         {/*  eslint-disable-next-line @shopify/jsx-no-hardcoded-content */}
         <p>
@@ -73,8 +90,13 @@ const Card: React.FC<CardProps> = ({picture, like, unlike}) => {
         <p className="date">{dateLabel}</p>
         <p className="desc">{picture.explanation} </p>
       </figure>
-
-      <CommentForm />
+      {comments.map((comment) => (
+        <div key={comment.text}>
+          <a href={`/${comment.author}`}>{comment.author}</a>{" "}
+          <span>{comment.text}</span>
+        </div>
+      ))}
+      <CommentForm commentRef={commentRef} setComments={setComments} />
     </CardContainer>
   );
 };

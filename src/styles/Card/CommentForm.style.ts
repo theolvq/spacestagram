@@ -12,7 +12,6 @@ export const StyledCommentForm = styled.form`
     max-height: 5rem;
     width: 100%;
     resize: none;
-    overflow: auto;
 
     :focus {
       outline: none;

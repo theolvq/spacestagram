@@ -63,12 +63,16 @@ export const ArrowButton = styled(Button)`
   }
 `;
 
+interface SaveButtonProps {
+  isSaved: boolean;
+}
+
 // Save (bookmark) button styles
 export const SaveButton = styled(Button)`
   margin-left: auto;
 
   :hover {
-    fill: var(--md-grey);
+    fill: ${({isSaved}: SaveButtonProps) => !isSaved && "var(--md-grey)"};
   }
 `;
 

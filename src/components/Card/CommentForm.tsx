@@ -2,10 +2,16 @@ import React, {useState} from "react";
 
 import {CommentButton, EmojiButton} from "../../styles/Buttons.style";
 import {StyledCommentForm} from "../../styles/Card/CommentForm.style";
+import {Comment} from "../../types/Comment";
 
 import EmojiIcon from "./EmojiIcon";
 
-const CommentForm = () => {
+interface CommentFormProps {
+  commentRef: React.Ref<HTMLTextAreaElement>;
+  setComments: React.Dispatch<React.SetStateAction<Comment[]>>;
+}
+
+const CommentForm: React.FC<CommentFormProps> = ({commentRef, setComments}) => {
   const [comment, setComment] = useState("");
 
   const commentButtonLabel = "Post";
@@ -18,6 +24,12 @@ const CommentForm = () => {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    const newComment = {
+      author: "hummingbird",
+      text: comment,
+    };
+    setComments((prev) => [...prev, newComment]);
+    setComment("");
   };
 
   return (
@@ -29,12 +41,16 @@ const CommentForm = () => {
         aria-label={commentLabel}
         value={comment}
         name="comment"
+        rows={4}
         autoComplete="off"
         autoCorrect="off"
         onChange={handleChange}
         placeholder={commentLabel}
+        ref={commentRef}
       />
-      <CommentButton disabled={isDisabled}>{commentButtonLabel}</CommentButton>
+      <CommentButton type="submit" disabled={isDisabled}>
+        {commentButtonLabel}
+      </CommentButton>
     </StyledCommentForm>
   );
 };

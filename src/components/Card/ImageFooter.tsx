@@ -12,6 +12,9 @@ interface ImageFooterProps {
   isHeartClicked: boolean;
   isLiked: boolean;
   handleLikeClick: (id: string) => void;
+  handleCommentClick: () => void;
+  handleSaveClick: () => void;
+  isSaved: boolean;
   picture: Image;
 }
 
@@ -19,6 +22,9 @@ const ImageFooter: React.FC<ImageFooterProps> = ({
   isHeartClicked,
   isLiked,
   handleLikeClick,
+  handleCommentClick,
+  handleSaveClick,
+  isSaved,
   picture,
 }) => {
   return (
@@ -30,14 +36,14 @@ const ImageFooter: React.FC<ImageFooterProps> = ({
       >
         <HeartIcon isLiked={isLiked} />
       </LikeButton>
-      <Button>
+      <Button onClick={handleCommentClick}>
         <CommentIcon />
       </Button>
       <Button>
         <ShareIcon />
       </Button>
-      <SaveButton>
-        <SaveIcon />
+      <SaveButton onClick={handleSaveClick} isSaved={isSaved}>
+        <SaveIcon isSaved={isSaved} />
       </SaveButton>
     </section>
   );
