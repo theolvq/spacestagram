@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 
-import {CommentButton, EmojiButton} from "../../styles/Buttons.style";
+import {PostCommentButton, EmojiButton} from "../../styles/Buttons.style";
 import {StyledCommentForm} from "../../styles/Card/CommentForm.style";
 import {Comment} from "../../types/Comment";
 
@@ -48,9 +48,9 @@ const CommentForm: React.FC<CommentFormProps> = ({commentRef, setComments}) => {
         placeholder={commentLabel}
         ref={commentRef}
       />
-      <CommentButton type="submit" disabled={isDisabled}>
+      <PostCommentButton type="submit" disabled={isDisabled}>
         {commentButtonLabel}
-      </CommentButton>
+      </PostCommentButton>
     </StyledCommentForm>
   );
 };

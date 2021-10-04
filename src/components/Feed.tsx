@@ -26,10 +26,34 @@ const Feed: React.FC<FeedProps> = ({images, setImages}) => {
       )
     );
   };
+
+  const save = (id: string): void => {
+    setImages((prev: Image[]) =>
+      prev.map((image: Image) =>
+        image.id === id ? {...image, isSaved: true} : image
+      )
+    );
+  };
+
+  const remove = (id: string): void => {
+    setImages((prev: Image[]) =>
+      prev.map((image: Image) =>
+        image.id === id ? {...image, isSaved: false} : image
+      )
+    );
+  };
+
   return (
     <FeedContainer>
       {images.map((image) => (
-        <Card key={image.id} picture={image} like={like} unlike={unlike} />
+        <Card
+          key={image.id}
+          picture={image}
+          like={like}
+          unlike={unlike}
+          save={save}
+          remove={remove}
+        />
       ))}
     </FeedContainer>
   );

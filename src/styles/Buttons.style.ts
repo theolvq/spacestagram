@@ -77,7 +77,7 @@ export const SaveButton = styled(Button)`
 `;
 
 // Post comment button styles
-export const CommentButton = styled(Button)`
+export const PostCommentButton = styled(Button)`
   color: var(--blue);
   font-family: "Nimbus Sans Bold";
 

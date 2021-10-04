@@ -22,7 +22,6 @@ export const StyledHeader = styled.header`
   }
 
   h1 {
-    font-family: "Satisfy", cursive;
     font-size: 1.75rem;
   }
 

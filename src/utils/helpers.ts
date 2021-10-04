@@ -14,6 +14,7 @@ export const processData = (data: ImageFromAPI[]) =>
       ...image,
       likes: randomLikes(),
       id: uuid(),
+      isSaved: false,
       user: {
         username: "nasa",
         picture: nasaLogo,

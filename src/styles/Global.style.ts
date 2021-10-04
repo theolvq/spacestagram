@@ -2,6 +2,7 @@ import * as styled from "styled-components";
 
 import NimbusSansBold from "../assets/fonts/NimbusSanL-Bol.otf";
 import NimbusSansRegular from "../assets/fonts/NimbusSanL-Reg.otf";
+import BlueVinylRegular from "../assets/fonts/blue_vinyl_regular.otf";
 
 export const GlobalStyles = styled.createGlobalStyle`
   @font-face {
@@ -15,6 +16,12 @@ export const GlobalStyles = styled.createGlobalStyle`
     font-style: normal;
     font-weight: 600;
     src: url(${NimbusSansBold});
+  }
+
+  @font-face {
+    font-family: "Blue Vinyl";
+    font-style: normal;
+    src: url(${BlueVinylRegular});
   }
 
   :root {
@@ -53,5 +60,9 @@ export const GlobalStyles = styled.createGlobalStyle`
     font-family: "Nimbus Sans Bold";
     text-decoration: none;
     color: inherit;
+  }
+
+  h1 > a {
+    font-family: "Blue Vinyl";
   }
 `;

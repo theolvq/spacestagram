@@ -14,5 +14,6 @@ export interface ImageFromAPI {
 export interface Image extends ImageFromAPI {
   likes: number;
   user: User;
+  isSaved: boolean;
   id: string;
 }

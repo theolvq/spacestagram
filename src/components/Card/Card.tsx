@@ -14,9 +14,11 @@ interface CardProps {
   picture: Image;
   like: (id: string) => void;
   unlike: (id: string) => void;
+  save: (id: string) => void;
+  remove: (id: string) => void;
 }
 
-const Card: React.FC<CardProps> = ({picture, like, unlike}) => {
+const Card: React.FC<CardProps> = ({picture, like, unlike, save, remove}) => {
   const [isLiked, setIsLiked] = useState(false);
   const [isHeartClicked, setIsHeartClicked] = useState(false);
   const [showModal, setShowModal] = useState(false);
@@ -50,8 +52,14 @@ const Card: React.FC<CardProps> = ({picture, like, unlike}) => {
     commentRef.current?.focus();
   };
 
-  const handleSaveClick = () => {
-    setIsSaved(!isSaved);
+  const handleSaveClick = (id: string) => {
+    if (isSaved) {
+      remove(id);
+      setIsSaved(false);
+    } else {
+      save(id);
+      setIsSaved(true);
+    }
   };
 
   const randomUser = "hummingbird";
