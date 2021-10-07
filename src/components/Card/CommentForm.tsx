@@ -3,7 +3,7 @@ import "emoji-mart/css/emoji-mart.css";
 import {BaseEmoji, Picker} from "emoji-mart";
 
 import {PostCommentButton, EmojiButton} from "../../styles/Buttons.style";
-import {StyledCommentForm} from "../../styles/Card/CommentForm.style";
+import {StyledCommentForm} from "../../styles/Card.style";
 import {Comment} from "../../types/comment";
 
 import EmojiIcon from "./EmojiIcon";

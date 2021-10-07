@@ -1,7 +1,7 @@
 import React, {useRef, useState} from "react";
 
 import {formatDate} from "../../utils/helpers";
-import {CardContainer} from "../../styles/Card/Card.style";
+import {CardContainer, StyledDate} from "../../styles/Card.style";
 import {Image} from "../../types/image";
 import {Comment} from "../../types/comment";
 import Modal from "../Modal";
@@ -76,17 +76,17 @@ const Card: React.FC<CardProps> = ({picture, like, unlike, save, remove}) => {
       <figure>
         <img src={picture.url} alt={picture.title} />
         <ImageFooter
-          isHeartClicked={isHeartClicked}
           handleLikeClick={handleLikeClick}
           handleCommentClick={handleCommentClick}
-          picture={picture}
-          isLiked={isLiked}
           handleSaveClick={handleSaveClick}
+          picture={picture}
+          isHeartClicked={isHeartClicked}
+          isLiked={isLiked}
           isSaved={isSaved}
         />
         <LikeLabel picture={picture} />
         <figcaption>{picture.title}</figcaption>
-        <p className="date">{dateLabel}</p>
+        <StyledDate>{dateLabel}</StyledDate>
         <p className="desc">{picture.explanation} </p>
       </figure>
       <CommentList comments={comments} />

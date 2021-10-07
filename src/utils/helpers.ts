@@ -1,7 +1,7 @@
 import {v4 as uuid} from "uuid";
 
 import {ImageFromAPI} from "../types/image";
-import {nasaLogo} from "../img";
+import {nasaLogo} from "../assets/img";
 
 const randomLikes = () => Math.floor(Math.random() * 150);
 
