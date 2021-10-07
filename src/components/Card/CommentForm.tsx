@@ -54,7 +54,6 @@ const CommentForm: React.FC<CommentFormProps> = ({commentRef, setComments}) => {
   };
 
   const addEmoji = (emoji: BaseEmoji) => {
-    console.log(emoji);
     setComment((prev) => prev + emoji.native);
   };
 
