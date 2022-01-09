@@ -1,5 +1,4 @@
 import React from "react";
-
 import {ArrowButton} from "../styles/Buttons.style";
 import {backToTop} from "../utils/helpers";
 

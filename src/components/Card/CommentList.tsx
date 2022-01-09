@@ -1,5 +1,4 @@
 import React from "react";
-
 import {StyledCommentList} from "../../styles/Card.style";
 import {Comment} from "../../types/comment";
 

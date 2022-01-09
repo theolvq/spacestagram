@@ -1,11 +1,9 @@
-import React, {KeyboardEventHandler, useState} from "react";
-import "emoji-mart/css/emoji-mart.css";
 import {BaseEmoji, Picker} from "emoji-mart";
-
-import {PostCommentButton, EmojiButton} from "../../styles/Buttons.style";
+import "emoji-mart/css/emoji-mart.css";
+import React, {KeyboardEventHandler, useState} from "react";
+import {EmojiButton, PostCommentButton} from "../../styles/Buttons.style";
 import {StyledCommentForm} from "../../styles/Card.style";
 import {Comment} from "../../types/comment";
-
 import EmojiIcon from "./EmojiIcon";
 
 interface CommentFormProps {

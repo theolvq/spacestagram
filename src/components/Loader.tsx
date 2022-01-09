@@ -1,5 +1,4 @@
 import React from "react";
-
 import {SpinLoader} from "../styles/Spin.style";
 
 const Loader: React.FC = () => {

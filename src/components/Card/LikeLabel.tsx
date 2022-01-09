@@ -1,6 +1,4 @@
-/* eslint-disable @shopify/jsx-no-hardcoded-content */
 import React from "react";
-
 import {Image} from "../../types/image";
 
 interface LikeLabelProps {

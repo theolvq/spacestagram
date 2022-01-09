@@ -1,16 +1,14 @@
 import React, {useRef, useState} from "react";
-
-import {formatDate} from "../../utils/helpers";
 import {CardContainer, StyledDate} from "../../styles/Card.style";
-import {Image} from "../../types/image";
 import {Comment} from "../../types/comment";
+import {Image} from "../../types/image";
+import {formatDate} from "../../utils/helpers";
 import Modal from "../Modal";
-
-import ImageFooter from "./ImageFooter";
 import CardHeader from "./CardHeader";
 import CommentForm from "./CommentForm";
-import LikeLabel from "./LikeLabel";
 import CommentList from "./CommentList";
+import ImageFooter from "./ImageFooter";
+import LikeLabel from "./LikeLabel";
 
 interface CardProps {
   picture: Image;
@@ -64,8 +62,6 @@ const Card: React.FC<CardProps> = ({picture, like, unlike, save, remove}) => {
     }
   };
 
-  const dateLabel = `Published on ${formatDate(picture.date)}`;
-
   return (
     <CardContainer>
       {showModal && <Modal handleClick={handleMoreOptionsClick} />}
@@ -86,7 +82,7 @@ const Card: React.FC<CardProps> = ({picture, like, unlike, save, remove}) => {
         />
         <LikeLabel picture={picture} />
         <figcaption>{picture.title}</figcaption>
-        <StyledDate>{dateLabel}</StyledDate>
+        <StyledDate>Published on ${formatDate(picture.date)}</StyledDate>
         <p className="desc">{picture.explanation} </p>
       </figure>
       <CommentList comments={comments} />
