@@ -1,8 +1,7 @@
 import * as styled from "styled-components";
-
+import BlueVinylRegular from "../assets/fonts/blue_vinyl_regular.otf";
 import NimbusSansBold from "../assets/fonts/NimbusSanL-Bol.otf";
 import NimbusSansRegular from "../assets/fonts/NimbusSanL-Reg.otf";
-import BlueVinylRegular from "../assets/fonts/blue_vinyl_regular.otf";
 
 export const GlobalStyles = styled.createGlobalStyle`
   @font-face {

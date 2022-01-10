@@ -1,5 +1,4 @@
 import styled from "styled-components";
-
 import {ErrorProps} from "../types/error";
 
 export const ErrorSnackBar = styled.div`
