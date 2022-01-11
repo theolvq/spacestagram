@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import {ErrorProps} from "../types/error";
+import styled from 'styled-components';
+import {ErrorProps} from '../types/error';
 
 export const ErrorSnackBar = styled.div`
   border: 2px solid var(--red);

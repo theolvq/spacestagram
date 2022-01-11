@@ -1,10 +1,10 @@
-import {BaseEmoji, Picker} from "emoji-mart";
-import "emoji-mart/css/emoji-mart.css";
-import React, {KeyboardEventHandler, useState} from "react";
-import {EmojiButton, PostCommentButton} from "../../styles/Buttons.style";
-import {StyledCommentForm} from "../../styles/Card.style";
-import {Comment} from "../../types/comment";
-import EmojiIcon from "./EmojiIcon";
+import {BaseEmoji, Picker} from 'emoji-mart';
+import 'emoji-mart/css/emoji-mart.css';
+import React, {KeyboardEventHandler, useState} from 'react';
+import {EmojiButton, PostCommentButton} from '../../styles/Buttons.style';
+import {StyledCommentForm} from '../../styles/Card.style';
+import {Comment} from '../../types/comment';
+import EmojiIcon from './EmojiIcon';
 
 interface CommentFormProps {
   commentRef: React.Ref<HTMLTextAreaElement>;
@@ -12,11 +12,11 @@ interface CommentFormProps {
 }
 
 const CommentForm: React.FC<CommentFormProps> = ({commentRef, setComments}) => {
-  const [comment, setComment] = useState("");
+  const [comment, setComment] = useState('');
   const [showPicker, setShowPicker] = useState(false);
 
-  const commentButtonLabel = "Post";
-  const commentLabel = "Add a comment...";
+  const commentButtonLabel = 'Post';
+  const commentLabel = 'Add a comment...';
   const isDisabled = comment.length < 1;
 
   const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -25,11 +25,11 @@ const CommentForm: React.FC<CommentFormProps> = ({commentRef, setComments}) => {
 
   const submitForm = () => {
     const newComment = {
-      author: "hummingbird",
+      author: 'hummingbird',
       text: comment,
     };
     setComments((prev) => [...prev, newComment]);
-    setComment("");
+    setComment('');
   };
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -38,9 +38,9 @@ const CommentForm: React.FC<CommentFormProps> = ({commentRef, setComments}) => {
   };
 
   const submitOnEnter: KeyboardEventHandler = (
-    event: React.KeyboardEvent<HTMLTextAreaElement>
+    event: React.KeyboardEvent<HTMLTextAreaElement>,
   ) => {
-    if (event.code !== "Enter") {
+    if (event.code !== 'Enter') {
       return;
     }
     event.preventDefault();
@@ -62,7 +62,7 @@ const CommentForm: React.FC<CommentFormProps> = ({commentRef, setComments}) => {
       </EmojiButton>
       {showPicker && (
         <Picker
-          style={{position: "absolute", bottom: "40px", left: "15px"}}
+          style={{position: 'absolute', bottom: '40px', left: '15px'}}
           onSelect={addEmoji}
         />
       )}

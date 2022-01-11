@@ -1,11 +1,11 @@
-import React from "react";
-import {Button, LikeButton, SaveButton} from "../../styles/Buttons.style";
-import {StyledImageFooter} from "../../styles/Card.style";
-import {Image} from "../../types/image";
-import CommentIcon from "./CommentIcon";
-import HeartIcon from "./HeartIcon";
-import SaveIcon from "./SaveIcon";
-import ShareIcon from "./ShareIcon";
+import React from 'react';
+import {Button, LikeButton, SaveButton} from '../../styles/Buttons.style';
+import {StyledImageFooter} from '../../styles/Card.style';
+import {Image} from '../../types/image';
+import CommentIcon from './CommentIcon';
+import HeartIcon from './HeartIcon';
+import SaveIcon from './SaveIcon';
+import ShareIcon from './ShareIcon';
 
 interface ImageFooterProps {
   handleLikeClick: (id: string) => void;

@@ -1,3 +1,3 @@
-import nasaLogo from "./nasa.jpg";
+import nasaLogo from './nasa.jpg';
 
 export {nasaLogo};

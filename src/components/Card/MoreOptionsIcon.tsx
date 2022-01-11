@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 
 const MoreOptionsIcon = () => {
-  const moreOptionsLabel = "More options";
+  const moreOptionsLabel = 'More options';
 
   return (
     <svg

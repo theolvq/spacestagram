@@ -1,7 +1,7 @@
-import React, {SetStateAction} from "react";
-import {FeedContainer} from "../styles/Feed.style";
-import {Image} from "../types/image";
-import Card from "./Card";
+import React, {SetStateAction} from 'react';
+import {FeedContainer} from '../styles/Feed.style';
+import {Image} from '../types/image';
+import Card from './Card';
 
 interface FeedProps {
   images: Image[];
@@ -12,32 +12,32 @@ const Feed: React.FC<FeedProps> = ({images, setImages}) => {
   const like = (id: string): void => {
     setImages((prev: Image[]) =>
       prev.map((image: Image) =>
-        image.id === id ? {...image, likes: image.likes + 1} : image
-      )
+        image.id === id ? {...image, likes: image.likes + 1} : image,
+      ),
     );
   };
 
   const unlike = (id: string): void => {
     setImages((prev: Image[]) =>
       prev.map((image: Image) =>
-        image.id === id ? {...image, likes: image.likes - 1} : image
-      )
+        image.id === id ? {...image, likes: image.likes - 1} : image,
+      ),
     );
   };
 
   const save = (id: string): void => {
     setImages((prev: Image[]) =>
       prev.map((image: Image) =>
-        image.id === id ? {...image, isSaved: true} : image
-      )
+        image.id === id ? {...image, isSaved: true} : image,
+      ),
     );
   };
 
   const remove = (id: string): void => {
     setImages((prev: Image[]) =>
       prev.map((image: Image) =>
-        image.id === id ? {...image, isSaved: false} : image
-      )
+        image.id === id ? {...image, isSaved: false} : image,
+      ),
     );
   };
 

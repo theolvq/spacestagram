@@ -1,4 +1,4 @@
-import styled, {css, keyframes} from "styled-components";
+import styled, {css, keyframes} from 'styled-components';
 
 // Generic button styles
 export const Button = styled.button`
@@ -37,7 +37,7 @@ const animation = css`
 `;
 
 const colorChange = ({isLiked}: LikeButtonProps) => css`
-  ${isLiked ? "var(--red)" : "var(--dark-grey)"}
+  ${isLiked ? 'var(--red)' : 'var(--dark-grey)'}
 `;
 
 export const LikeButton = styled(Button)`
@@ -72,14 +72,14 @@ export const SaveButton = styled(Button)`
   margin-left: auto;
 
   :hover {
-    fill: ${({isSaved}: SaveButtonProps) => !isSaved && "var(--md-grey)"};
+    fill: ${({isSaved}: SaveButtonProps) => !isSaved && 'var(--md-grey)'};
   }
 `;
 
 // Post comment button styles
 export const PostCommentButton = styled(Button)`
   color: var(--blue);
-  font-family: "Nimbus Sans Bold";
+  font-family: 'Nimbus Sans Bold';
 
   &[disabled] {
     opacity: 0.3;

@@ -1,8 +1,8 @@
-import React from "react";
-import {Button} from "../../styles/Buttons.style";
-import {StyledCardHeader} from "../../styles/Card.style";
-import {Image} from "../../types/image";
-import MoreOptionsIcon from "./MoreOptionsIcon";
+import React from 'react';
+import {Button} from '../../styles/Buttons.style';
+import {StyledCardHeader} from '../../styles/Card.style';
+import {Image} from '../../types/image';
+import MoreOptionsIcon from './MoreOptionsIcon';
 
 interface CardHeaderProps {
   picture: Image;

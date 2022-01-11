@@ -1,8 +1,8 @@
-import React from "react";
-import {SpinLoader} from "../styles/Spin.style";
+import React from 'react';
+import {SpinLoader} from '../styles/Spin.style';
 
 const Loader: React.FC = () => {
-  const loadLabel = "Loading";
+  const loadLabel = 'Loading';
 
   return (
     <SpinLoader>

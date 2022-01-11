@@ -1,20 +1,20 @@
-import React, {useEffect, useState} from "react";
-import useEvent from "../hooks/useEvent";
-import {FeedContainer} from "../styles/Feed.style";
-import {HighLevelFeedProps} from "../types/feed";
-import {Image} from "../types/image";
-import {substractTenDays} from "../utils/helpers";
-import Feed from "./Feed";
+import React, {useEffect, useState} from 'react';
+import useEvent from '../hooks/useEvent';
+import {FeedContainer} from '../styles/Feed.style';
+import {HighLevelFeedProps} from '../types/feed';
+import {Image} from '../types/image';
+import {substractTenDays} from '../utils/helpers';
+import Feed from './Feed';
 
 const ChronologicalFeed: React.FC<HighLevelFeedProps> = ({
   baseUrl,
   fetchData,
   isLoading,
 }) => {
-  const today = new Date().toLocaleDateString("en-CA", {
-    year: "numeric",
-    month: "numeric",
-    day: "numeric",
+  const today = new Date().toLocaleDateString('en-CA', {
+    year: 'numeric',
+    month: 'numeric',
+    day: 'numeric',
   });
 
   const [images, setImages] = useState<Image[]>([]);
@@ -38,7 +38,7 @@ const ChronologicalFeed: React.FC<HighLevelFeedProps> = ({
     }
   };
 
-  useEvent("scroll", handleScroll);
+  useEvent('scroll', handleScroll);
 
   useEffect(() => {
     fetchData(chronoUrl, setImages);

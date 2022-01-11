@@ -1,26 +1,26 @@
-import axios from "axios";
-import React, {Dispatch, SetStateAction, useCallback, useState} from "react";
-import {Route, Switch} from "react-router-dom";
-import ChronologicalFeed from "./components/ChronologicalFeed";
-import ErrorSnackbar from "./components/Error";
-import Footer from "./components/Footer";
-import Header from "./components/Header";
-import Loader from "./components/Loader";
-import RandomFeed from "./components/RandomFeed";
-import {GlobalStyles} from "./styles/Global.style";
-import {Image} from "./types/image";
-import {processData} from "./utils/helpers";
+import axios from 'axios';
+import React, {Dispatch, SetStateAction, useCallback, useState} from 'react';
+import {Route, Switch} from 'react-router-dom';
+import ChronologicalFeed from './components/ChronologicalFeed';
+import ErrorSnackbar from './components/Error';
+import Footer from './components/Footer';
+import Header from './components/Header';
+import Loader from './components/Loader';
+import RandomFeed from './components/RandomFeed';
+import {GlobalStyles} from './styles/Global.style';
+import {Image} from './types/image';
+import {processData} from './utils/helpers';
 
 const API_KEY = process.env.REACT_APP_API_KEY;
-const APOD_URL = "https://api.nasa.gov/planetary/apod";
+const APOD_URL = 'https://api.nasa.gov/planetary/apod';
 
 function App() {
   const [isLoading, setIsLoading] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState('');
 
   const baseUrl = `${APOD_URL}?api_key=${API_KEY}`;
 
-  const fetchData = useCallback(
+  const fetchImages = useCallback(
     async (url: string, setState: Dispatch<SetStateAction<Image[]>>) => {
       setIsLoading(true);
       try {
@@ -31,14 +31,14 @@ function App() {
         if (err instanceof Error) {
           setErrorMessage(err.message);
           setTimeout(() => {
-            setErrorMessage("");
+            setErrorMessage('');
           }, 10000);
         }
       } finally {
         setIsLoading(false);
       }
     },
-    []
+    [],
   );
 
   return (
@@ -51,14 +51,14 @@ function App() {
         <Route exact path="/">
           <ChronologicalFeed
             baseUrl={baseUrl}
-            fetchData={fetchData}
+            fetchData={fetchImages}
             isLoading={isLoading}
           />
         </Route>
         <Route path="/random">
           <RandomFeed
             baseUrl={baseUrl}
-            fetchData={fetchData}
+            fetchData={fetchImages}
             isLoading={isLoading}
           />
         </Route>

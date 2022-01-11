@@ -11,6 +11,7 @@
     "normalize.css": "^8.0.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-query": "^3.34.7",
     "react-router-dom": "^5.3.0",
     "react-scripts": "4.0.3",
     "styled-components": "^5.3.1",
@@ -32,6 +33,7 @@
       "react-app/jest"
     ]
   },
+  "prettier": "@shopify/prettier-config",
   "browserslist": {
     "production": [
       ">0.2%",
@@ -46,6 +48,7 @@
   },
   "devDependencies": {
     "@shopify/eslint-plugin": "^40.4.0",
+    "@shopify/prettier-config": "^1.1.2",
     "@tsconfig/create-react-app": "^1.0.2",
     "@types/emoji-mart": "^3.0.6",
     "@types/jest": "^27.0.2",

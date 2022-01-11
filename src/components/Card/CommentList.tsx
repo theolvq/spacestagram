@@ -1,6 +1,6 @@
-import React from "react";
-import {StyledCommentList} from "../../styles/Card.style";
-import {Comment} from "../../types/comment";
+import React from 'react';
+import {StyledCommentList} from '../../styles/Card.style';
+import {Comment} from '../../types/comment';
 
 interface CommentListProps {
   comments: Comment[];
@@ -10,7 +10,7 @@ const CommentList: React.FC<CommentListProps> = ({comments}) => {
     <StyledCommentList>
       {comments.map((comment) => (
         <div key={comment.text}>
-          <a href={`/${comment.author}`}>{comment.author}</a>{" "}
+          <a href={`/${comment.author}`}>{comment.author}</a>{' '}
           <span>{comment.text}</span>
         </div>
       ))}

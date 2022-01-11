@@ -1,6 +1,6 @@
-import React from "react";
-import {ErrorSnackBar} from "../styles/Error.style";
-import {ErrorProps} from "../types/error";
+import React from 'react';
+import {ErrorSnackBar} from '../styles/Error.style';
+import {ErrorProps} from '../types/error';
 
 const Error: React.FC<ErrorProps> = ({error}) => {
   return (

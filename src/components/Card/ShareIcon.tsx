@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 
 const ShareIcon = () => {
-  const shareLabel = "Share Post";
+  const shareLabel = 'Share Post';
 
   return (
     <svg

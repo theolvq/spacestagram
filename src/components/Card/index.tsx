@@ -1,14 +1,14 @@
-import React, {useRef, useState} from "react";
-import {CardContainer, StyledDate} from "../../styles/Card.style";
-import {Comment} from "../../types/comment";
-import {Image} from "../../types/image";
-import {formatDate} from "../../utils/helpers";
-import Modal from "../Modal";
-import CardHeader from "./CardHeader";
-import CommentForm from "./CommentForm";
-import CommentList from "./CommentList";
-import ImageFooter from "./ImageFooter";
-import LikeLabel from "./LikeLabel";
+import React, {useRef, useState} from 'react';
+import {CardContainer, StyledDate} from '../../styles/Card.style';
+import {Comment} from '../../types/comment';
+import {Image} from '../../types/image';
+import {formatDate} from '../../utils/helpers';
+import Modal from '../Modal';
+import CardHeader from './CardHeader';
+import CommentForm from './CommentForm';
+import CommentList from './CommentList';
+import ImageFooter from './ImageFooter';
+import LikeLabel from './LikeLabel';
 
 interface CardProps {
   picture: Image;
