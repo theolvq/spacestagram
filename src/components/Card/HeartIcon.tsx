@@ -1,10 +1,10 @@
-import React from 'react';
+import React, {FC} from 'react';
 
 export interface HeartIconProps {
   isLiked: boolean;
 }
 
-const HeartIcon: React.FC<HeartIconProps> = ({isLiked}) => {
+const HeartIcon: FC<HeartIconProps> = ({isLiked}) => {
   const likeButtonLabel = isLiked ? 'Unlike' : 'Like';
 
   const svgPath = isLiked ? (

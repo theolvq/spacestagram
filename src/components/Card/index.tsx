@@ -1,4 +1,4 @@
-import React, {useRef, useState} from 'react';
+import React, {FC, useRef, useState} from 'react';
 import {CardContainer, StyledDate} from '../../styles/Card.style';
 import {Comment} from '../../types/comment';
 import {Image} from '../../types/image';
@@ -18,7 +18,7 @@ interface CardProps {
   remove: (id: string) => void;
 }
 
-const Card: React.FC<CardProps> = ({picture, like, unlike, save, remove}) => {
+const Card: FC<CardProps> = ({picture, like, unlike, save, remove}) => {
   const [isLiked, setIsLiked] = useState(false);
   const [isHeartClicked, setIsHeartClicked] = useState(false);
   const [showModal, setShowModal] = useState(false);

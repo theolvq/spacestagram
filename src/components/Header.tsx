@@ -1,8 +1,8 @@
-import React from 'react';
+import React, {FC} from 'react';
 import {Link} from 'react-router-dom';
 import {StyledHeader} from '../styles/Header.style';
 
-const Header: React.FC = () => {
+const Header: FC = () => {
   const titleLabel = 'Spacestagram';
   const homeLabel = 'Home/Pictures in Chronological order';
   const randomLabel = 'Random Pictures';

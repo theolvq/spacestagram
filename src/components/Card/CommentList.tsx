@@ -1,11 +1,11 @@
-import React from 'react';
+import React, {FC} from 'react';
 import {StyledCommentList} from '../../styles/Card.style';
 import {Comment} from '../../types/comment';
 
 interface CommentListProps {
   comments: Comment[];
 }
-const CommentList: React.FC<CommentListProps> = ({comments}) => {
+const CommentList: FC<CommentListProps> = ({comments}) => {
   return (
     <StyledCommentList>
       {comments.map((comment) => (

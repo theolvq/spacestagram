@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {FC} from 'react';
 import {Button, LikeButton, SaveButton} from '../../styles/Buttons.style';
 import {StyledImageFooter} from '../../styles/Card.style';
 import {Image} from '../../types/image';
@@ -17,7 +17,7 @@ interface ImageFooterProps {
   isSaved: boolean;
 }
 
-const ImageFooter: React.FC<ImageFooterProps> = ({
+const ImageFooter: FC<ImageFooterProps> = ({
   handleLikeClick,
   handleCommentClick,
   handleSaveClick,

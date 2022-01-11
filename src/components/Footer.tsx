@@ -1,8 +1,8 @@
-import React from 'react';
+import React, {FC} from 'react';
 import {ArrowButton} from '../styles/Buttons.style';
 import {backToTop} from '../utils/helpers';
 
-const Footer: React.FC = () => {
+const Footer: FC = () => {
   const backToTopLabel = 'Back to Top';
   return (
     <footer>

@@ -1,10 +1,10 @@
-import React from 'react';
+import React, {FC} from 'react';
 
 export interface SaveIconProps {
   isSaved: boolean;
 }
 
-const SaveIcon: React.FC<SaveIconProps> = ({isSaved}) => {
+const SaveIcon: FC<SaveIconProps> = ({isSaved}) => {
   const saveLabel = isSaved ? 'Remove' : 'Save';
 
   const svgPath = isSaved ? (

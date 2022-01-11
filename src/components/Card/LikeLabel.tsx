@@ -1,11 +1,11 @@
-import React from 'react';
+import React, {FC} from 'react';
 import {Image} from '../../types/image';
 
 interface LikeLabelProps {
   picture: Image;
 }
 
-const LikeLabel: React.FC<LikeLabelProps> = ({picture}) => {
+const LikeLabel: FC<LikeLabelProps> = ({picture}) => {
   const otherLabel = picture.likes - 1 > 1 ? 'others' : 'other';
 
   return (

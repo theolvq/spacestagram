@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {FC} from 'react';
 import {Button} from '../styles/Buttons.style';
 import {StyledModal} from '../styles/Modal.style';
 
@@ -6,7 +6,7 @@ interface ModalProps {
   handleClick: React.MouseEventHandler;
 }
 
-const Modal: React.FC<ModalProps> = ({handleClick}) => {
+const Modal: FC<ModalProps> = ({handleClick}) => {
   const buttons = [
     {id: 1, label: 'Report'},
     {id: 2, label: 'Unfollow'},

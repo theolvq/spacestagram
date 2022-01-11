@@ -1,4 +1,4 @@
-import React, {SetStateAction} from 'react';
+import React, {FC, SetStateAction} from 'react';
 import {FeedContainer} from '../styles/Feed.style';
 import {Image} from '../types/image';
 import Card from './Card';
@@ -8,7 +8,7 @@ interface FeedProps {
   setImages: React.Dispatch<SetStateAction<Image[]>>;
 }
 
-const Feed: React.FC<FeedProps> = ({images, setImages}) => {
+const Feed: FC<FeedProps> = ({images, setImages}) => {
   const like = (id: string): void => {
     setImages((prev: Image[]) =>
       prev.map((image: Image) =>

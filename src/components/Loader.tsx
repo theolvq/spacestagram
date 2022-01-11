@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {FC} from 'react';
 import {SpinLoader} from '../styles/Spin.style';
 
-const Loader: React.FC = () => {
+const Loader: FC = () => {
   const loadLabel = 'Loading';
 
   return (

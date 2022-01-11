@@ -1,6 +1,6 @@
 import {BaseEmoji, Picker} from 'emoji-mart';
 import 'emoji-mart/css/emoji-mart.css';
-import React, {KeyboardEventHandler, useState} from 'react';
+import React, {FC, KeyboardEventHandler, useState} from 'react';
 import {EmojiButton, PostCommentButton} from '../../styles/Buttons.style';
 import {StyledCommentForm} from '../../styles/Card.style';
 import {Comment} from '../../types/comment';
@@ -11,7 +11,7 @@ interface CommentFormProps {
   setComments: React.Dispatch<React.SetStateAction<Comment[]>>;
 }
 
-const CommentForm: React.FC<CommentFormProps> = ({commentRef, setComments}) => {
+const CommentForm: FC<CommentFormProps> = ({commentRef, setComments}) => {
   const [comment, setComment] = useState('');
   const [showPicker, setShowPicker] = useState(false);
 

@@ -1,11 +1,11 @@
-import React, {useEffect, useState} from 'react';
+import React, {FC, useEffect, useState} from 'react';
 import useEvent from '../hooks/useEvent';
 import {FeedContainer} from '../styles/Feed.style';
 import {HighLevelFeedProps} from '../types/feed';
 import {Image} from '../types/image';
 import Feed from './Feed';
 
-const RandomFeed: React.FC<HighLevelFeedProps> = ({
+const RandomFeed: FC<HighLevelFeedProps> = ({
   isLoading,
   fetchData,
   baseUrl,
