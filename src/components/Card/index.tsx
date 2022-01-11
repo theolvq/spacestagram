@@ -10,7 +10,7 @@ import CommentList from './CommentList';
 import ImageFooter from './ImageFooter';
 import LikeLabel from './LikeLabel';
 
-interface CardProps {
+export interface CardProps {
   picture: Image;
   like: (id: string) => void;
   unlike: (id: string) => void;

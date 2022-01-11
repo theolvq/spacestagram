@@ -1,9 +1,10 @@
 {
   "env": {
     "node": true,
-    "browser": true
+    "browser": true,
+    "jest": true
   },
-  "plugins": ["prettier", "jsx-a11y"],
+  "plugins": ["prettier", "jsx-a11y", "jest"],
   "extends": [
     "plugin:@shopify/esnext",
     "plugin:@shopify/react",
@@ -25,7 +26,8 @@
         "newlines-between": "never"
       }
     ],
-    "@shopify/jsx-no-hardcoded-content": 0
+    "@shopify/jsx-no-hardcoded-content": 0,
+    "@shopify/strict-component-boundaries": 0
   },
   "settings": {
     "import/resolver": {
