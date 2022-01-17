@@ -4,7 +4,7 @@ export interface User {
 }
 
 export interface ImageFromAPI {
-  date: Date;
+  date: string;
   url: string;
   title: string;
   explanation: string;

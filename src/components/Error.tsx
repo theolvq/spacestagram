@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {FC} from 'react';
 import {ErrorSnackBar} from '../styles/Error.style';
 import {ErrorProps} from '../types/error';
 

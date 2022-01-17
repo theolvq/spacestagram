@@ -44,7 +44,7 @@ const months = [
   'November',
   'December',
 ];
-export const formatDate = (inputDate: Date) => {
+export const formatDate = (inputDate: string) => {
   const date = new Date(inputDate);
   return `${days[date.getDay()]}, ${
     months[date.getMonth()]
