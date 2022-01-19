@@ -74,4 +74,49 @@ describe('<Card />', () => {
       expect(input).toHaveFocus();
     });
   });
+
+  describe('Likes', () => {
+    it('when like button is clicked, like function should be called', () => {
+      const likeButton = screen.getByLabelText(/Like/i);
+      fireEvent.click(likeButton);
+      expect(mockLike).toHaveBeenCalledTimes(1);
+    });
+    it('when like button is clicked, background changes to red and label changes to unlike', () => {
+      const likeButton = screen.getByLabelText(/Like/i);
+      fireEvent.click(likeButton);
+      expect(likeButton).toHaveStyle('fill: var(--red)');
+      expect(likeButton).toHaveStyle('stroke: var(--red)');
+      expect(likeButton).toHaveAccessibleName(/Unlike/i);
+    });
+
+    it('when unlike button is clicked, unlike function should be called', () => {
+      const likeButton = screen.getByLabelText(/Like/i);
+      fireEvent.click(likeButton);
+      fireEvent.click(likeButton);
+      expect(mockUnlike).toHaveBeenCalledTimes(1);
+    });
+
+    it('when unlike button is clicked, background changes to white and label changes to like', () => {
+      const likeButton = screen.getByLabelText(/Like/i);
+      fireEvent.click(likeButton);
+      fireEvent.click(likeButton);
+      expect(likeButton).toHaveStyle('stroke: var(--dark-grey)');
+      expect(likeButton).toHaveAccessibleName(/Like/i);
+    });
+  });
+
+  describe('Save', () => {
+    it('when save button is clicked, label changes to remove', () => {
+      const saveButton = screen.getByLabelText(/Save/i);
+
+      fireEvent.click(saveButton);
+      expect(saveButton).toHaveAccessibleName(/Remove/i);
+    });
+
+    it('when save button is clicked, save function should be called', () => {
+      const saveButton = screen.getByLabelText(/Save/i);
+      fireEvent.click(saveButton);
+      expect(mockSave).toHaveBeenCalledTimes(1);
+    });
+  });
 });

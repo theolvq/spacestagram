@@ -1,5 +1,3 @@
-import {BaseEmoji, Picker} from 'emoji-mart';
-import 'emoji-mart/css/emoji-mart.css';
 import React, {FC, KeyboardEventHandler, useState} from 'react';
 import {EmojiButton, PostCommentButton} from '../../styles/Buttons.style';
 import {StyledCommentForm} from '../../styles/Card.style';
@@ -13,7 +11,6 @@ interface CommentFormProps {
 
 const CommentForm: FC<CommentFormProps> = ({commentRef, setComments}) => {
   const [comment, setComment] = useState('');
-  const [showPicker, setShowPicker] = useState(false);
 
   const commentButtonLabel = 'Post';
   const commentLabel = 'Add a comment...';
@@ -47,25 +44,11 @@ const CommentForm: FC<CommentFormProps> = ({commentRef, setComments}) => {
     submitForm();
   };
 
-  const toggleEmojiPicker = () => {
-    setShowPicker(!showPicker);
-  };
-
-  const addEmoji = (emoji: BaseEmoji) => {
-    setComment((prev) => prev + emoji.native);
-  };
-
   return (
     <StyledCommentForm onSubmit={handleSubmit}>
-      <EmojiButton type="button" onClick={toggleEmojiPicker}>
+      <EmojiButton type="button">
         <EmojiIcon />
       </EmojiButton>
-      {showPicker && (
-        <Picker
-          style={{position: 'absolute', bottom: '40px', left: '15px'}}
-          onSelect={addEmoji}
-        />
-      )}
       <textarea
         aria-label={commentLabel}
         value={comment}
