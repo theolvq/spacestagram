@@ -1,6 +1,6 @@
-import React from 'react';
+import React, {FC} from 'react';
 
-const MoreOptionsIcon = () => {
+const MoreOptionsIcon: FC = () => {
   const moreOptionsLabel = 'More options';
 
   return (

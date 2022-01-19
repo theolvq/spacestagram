@@ -15,7 +15,7 @@ const HeartIcon: FC<HeartIconProps> = ({isLiked}) => {
 
   return (
     <svg
-      aria-label={likeButtonLabel}
+      // aria-label={likeButtonLabel}
       height="24"
       role="img"
       viewBox="0 0 48 48"

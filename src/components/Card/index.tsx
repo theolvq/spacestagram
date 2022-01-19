@@ -63,7 +63,7 @@ const Card: FC<CardProps> = ({picture, like, unlike, save, remove}) => {
   };
 
   return (
-    <CardContainer>
+    <CardContainer data-testid="card">
       {showModal && <Modal handleClick={handleMoreOptionsClick} />}
       <CardHeader
         handleMoreOptionsClick={handleMoreOptionsClick}

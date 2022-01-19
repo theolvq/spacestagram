@@ -7,7 +7,7 @@ interface CommentListProps {
 }
 const CommentList: FC<CommentListProps> = ({comments}) => {
   return (
-    <StyledCommentList>
+    <StyledCommentList data-testid="comment-list">
       {comments.map((comment) => (
         <div key={comment.text}>
           <a href={`/${comment.author}`}>{comment.author}</a>{' '}

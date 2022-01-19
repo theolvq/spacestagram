@@ -1,6 +1,6 @@
-import React from 'react';
+import React, {FC} from 'react';
 
-const CommentIcon = () => {
+const CommentIcon: FC = () => {
   return (
     <svg
       aria-label="Write a comment"

@@ -1,6 +1,6 @@
-import React from 'react';
+import React, {FC} from 'react';
 
-const ShareIcon = () => {
+const ShareIcon: FC = () => {
   const shareLabel = 'Share Post';
 
   return (

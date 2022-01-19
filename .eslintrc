@@ -6,8 +6,10 @@
   },
   "plugins": ["prettier", "jsx-a11y", "jest"],
   "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
     "plugin:@shopify/esnext",
-    "plugin:@shopify/react",
     "plugin:@shopify/react",
     "plugin:@shopify/prettier",
     "plugin:prettier/recommended",
@@ -16,18 +18,22 @@
     "plugin:import/warnings",
     "plugin:import/typescript"
   ],
-
+  "parser": "@typescript-eslint/parser",
   "rules": {
-    "no-process-env": 0,
-    "no-console": 1,
+    "no-use-before-define": "off",
+    "@typescript-eslint/no-use-before-define": ["error"],
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": ["error"],
+    "no-process-env": "off",
+    "no-console": ["error"],
     "import/order": [
       "error",
       {
         "newlines-between": "never"
       }
     ],
-    "@shopify/jsx-no-hardcoded-content": 0,
-    "@shopify/strict-component-boundaries": 0
+    "@shopify/jsx-no-hardcoded-content": "off",
+    "@shopify/strict-component-boundaries": "off"
   },
   "settings": {
     "import/resolver": {

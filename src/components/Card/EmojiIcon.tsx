@@ -1,6 +1,6 @@
-import React from 'react';
+import React, {FC} from 'react';
 
-const EmojiIcon = () => {
+const EmojiIcon: FC = () => {
   return (
     <svg
       aria-label="Click for emoji"

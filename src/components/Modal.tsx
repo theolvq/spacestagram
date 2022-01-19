@@ -20,13 +20,13 @@ const Modal: FC<ModalProps> = ({handleClick}) => {
 
   return (
     <StyledModal onClick={handleClick}>
-      <div>
+      <>
         {buttons.map((button) => (
           <Button key={button.id} onClick={handleClick}>
             {button.label}
           </Button>
         ))}
-      </div>
+      </>
     </StyledModal>
   );
 };

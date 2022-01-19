@@ -26,12 +26,14 @@ const ImageFooter: FC<ImageFooterProps> = ({
   isLiked,
   isSaved,
 }) => {
+  const likeButtonLabel = isLiked ? 'Unlike' : 'Like';
   return (
     <StyledImageFooter>
       <LikeButton
         isClicked={isHeartClicked}
         isLiked={isLiked}
         onClick={() => handleLikeClick(picture.id)}
+        aria-label={likeButtonLabel}
       >
         <HeartIcon isLiked={isLiked} />
       </LikeButton>

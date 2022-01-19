@@ -1,5 +1,11 @@
 import axios from 'axios';
-import React, {Dispatch, SetStateAction, useCallback, useState} from 'react';
+import React, {
+  Dispatch,
+  FC,
+  SetStateAction,
+  useCallback,
+  useState,
+} from 'react';
 import {Route, Switch} from 'react-router-dom';
 import ChronologicalFeed from './components/ChronologicalFeed';
 import ErrorSnackbar from './components/Error';
@@ -14,7 +20,7 @@ import {processData} from './utils/helpers';
 const API_KEY = process.env.REACT_APP_API_KEY;
 const APOD_URL = 'https://api.nasa.gov/planetary/apod';
 
-function App() {
+const App: FC = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
 
@@ -66,6 +72,6 @@ function App() {
       <Footer />
     </main>
   );
-}
+};
 
 export default App;

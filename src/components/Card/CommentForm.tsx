@@ -78,7 +78,11 @@ const CommentForm: FC<CommentFormProps> = ({commentRef, setComments}) => {
         ref={commentRef}
         onKeyDown={submitOnEnter}
       />
-      <PostCommentButton type="submit" disabled={isDisabled}>
+      <PostCommentButton
+        aria-label="Add comment"
+        type="submit"
+        disabled={isDisabled}
+      >
         {commentButtonLabel}
       </PostCommentButton>
     </StyledCommentForm>

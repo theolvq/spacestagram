@@ -11,9 +11,9 @@ const LikeLabel: FC<LikeLabelProps> = ({picture}) => {
   return (
     <p>
       Liked by <a href="/randomUser">hummingbird</a> and
-      <a href="/likes">
+      <a data-testid="like-label" href="/likes">
         {' '}
-        {picture.likes - 1} {otherLabel}
+        {picture.likes} {otherLabel}
       </a>
     </p>
   );
